@@ -1,0 +1,80 @@
+[
+  {
+    "user": null,
+    "orderItems": [
+      {
+        "id": "run-1",
+        "name": "Velocity NITRO 4",
+        "slug": "velocity-nitro-4",
+        "price": 12999,
+        "image": {
+          "url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&q=80",
+          "alt": "Velocity NITRO 4 - Electric Blue"
+        },
+        "variant": {
+          "id": "vr1-2",
+          "size": "8",
+          "color": "Electric Blue"
+        },
+        "quantity": 1
+      }
+    ],
+    "shippingAddress": {
+      "firstName": "Rohit",
+      "lastName": "Sharma",
+      "address": "123 Luxury Road",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "pincode": "400005",
+      "phone": "9876543210",
+      "email": "rohit@gmail.com"
+    },
+    "paymentMethod": "COD",
+    "paymentStatus": "Pending",
+    "shippingCost": 0,
+    "gstAmount": 2340,
+    "totalAmount": 15339,
+    "_id": "fb-order-4ermz1z",
+    "orderStatus": "Pending",
+    "createdAt": "2026-06-15T10:30:56.566Z"
+  },
+  {
+    "user": "fb-user-rdkfi58",
+    "orderItems": [
+      {
+        "id": "run-1",
+        "name": "Velocity NITRO 4",
+        "slug": "velocity-nitro-4",
+        "price": 12999,
+        "image": {
+          "url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&q=80",
+          "alt": "Velocity NITRO 4 - Electric Blue"
+        },
+        "variant": {
+          "id": "vr1-1",
+          "size": "7",
+          "color": "Electric Blue"
+        },
+        "quantity": 1
+      }
+    ],
+    "shippingAddress": {
+      "firstName": "Rohit",
+      "lastName": "Sharma",
+      "address": "123 Luxury Ave",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "pincode": "400001",
+      "phone": "9876543210",
+      "email": "customer@luxe.com"
+    },
+    "paymentMethod": "COD",
+    "paymentStatus": "Paid",
+    "shippingCost": 0,
+    "gstAmount": 2340,
+    "totalAmount": 15339,
+    "_id": "fb-order-azvv3bc",
+    "orderStatus": "Shipped",
+    "createdAt": "2026-06-15T10:54:18.949Z"
+  }
+]

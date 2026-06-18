@@ -1,0 +1,34 @@
+[
+  {
+    "_id": "fallback-admin-id",
+    "name": "Luxe Admin",
+    "email": "admin@luxe.com",
+    "password": "$2a$10$w8jS6yNJx6SSM5PEk.nmfeLNmTeYEhmI.uKLTRLdSLNdYxund1Vh.",
+    "role": "admin",
+    "createdAt": "2026-06-15T10:26:31.937Z"
+  },
+  {
+    "_id": "fallback-customer-id",
+    "name": "Luxe Customer",
+    "email": "customer@luxe.com",
+    "password": "$2a$10$w8jS6yNJx6SSM5PEk.nmfewdX.BOoepDAW4JShUpX4YQELKI5huri",
+    "role": "customer",
+    "createdAt": "2026-06-15T10:26:31.938Z"
+  },
+  {
+    "_id": "fb-user-rdkfi58",
+    "name": "Customer 3210",
+    "email": "9876543210@luxe.com",
+    "password": "$2a$10$NLUBoMfJrz39XvJBLqV6heuMoEOhyDKV8ih8M/12PHbbM06FIG/eK",
+    "role": "customer",
+    "createdAt": "2026-06-15T10:52:47.190Z"
+  },
+  {
+    "_id": "fb-user-2oc976z",
+    "name": "Customer 9934",
+    "email": "9744089934@luxe.com",
+    "password": "$2a$10$9638uN0Cx/.nEdpKologMuEx4KXVt/d3uGtLFE/R9o6TAT4UsL6qK",
+    "role": "customer",
+    "createdAt": "2026-06-16T08:53:01.741Z"
+  }
+]
