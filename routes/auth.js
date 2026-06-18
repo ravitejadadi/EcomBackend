@@ -4,11 +4,19 @@ import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
 import crypto from 'crypto';
 import nodemailer from 'nodemailer';
+import twilio from 'twilio';
 import User from '../models/User.js';
 import { verifyToken } from '../middleware/auth.js';
 import { fallbackDB } from '../utils/dbFallback.js';
 
 const router = express.Router();
+
+// ─── Twilio Verify client (singleton) ────────────────────────────────────────
+const twilioClient = (() => {
+    const { TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN } = process.env;
+    if (!TWILIO_ACCOUNT_SID || !TWILIO_AUTH_TOKEN) return null;
+    return twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
+})();
 
 // ─── Gmail SMTP transporter (singleton) ─────────────────────────────────────
 const smtpTransporter = (() => {
@@ -295,9 +303,17 @@ router.get('/me', verifyToken, async (req, res) => {
     });
 });
 
-// @desc    Send OTP to phone
+// @desc    Send OTP to phone via Twilio Verify
 // @route   POST /api/auth/send-otp
 // @access  Public
+// Normalize any Indian phone format to E.164 (+91XXXXXXXXXX)
+function toE164India(raw) {
+    const digits = String(raw).replace(/\D/g, '');
+    if (digits.startsWith('91') && digits.length === 12) return `+${digits}`;
+    if (digits.length === 10) return `+91${digits}`;
+    return `+${digits}`; // already has country code, just missing +
+}
+
 router.post('/send-otp', async (req, res) => {
     try {
         const { phone } = req.body;
@@ -305,14 +321,19 @@ router.post('/send-otp', async (req, res) => {
             return res.status(400).json({ message: 'Phone number is required' });
         }
 
-        const otp = Math.floor(1000 + Math.random() * 9000).toString();
-        console.log(`\n============================================\n[SMS GATEWAY SIMULATION]: OTP for ${phone} is ${otp}\n============================================\n`);
+        if (!twilioClient) {
+            return res.status(503).json({ message: 'SMS service is not configured. Please contact support.' });
+        }
 
-        await fallbackDB.saveOTP(phone, otp);
-        res.json({ message: 'OTP sent successfully (Simulated)' });
+        const e164 = toE164India(phone);
+        await twilioClient.verify.v2
+            .services(process.env.TWILIO_VERIFY_SERVICE_SID)
+            .verifications.create({ to: e164, channel: 'sms' });
+
+        res.json({ message: 'OTP sent successfully' });
     } catch (error) {
         console.error('Send OTP error:', error);
-        res.status(500).json({ message: 'Server error sending OTP' });
+        res.status(500).json({ message: 'Failed to send OTP. Please check the phone number and try again.' });
     }
 });
 
@@ -326,22 +347,30 @@ router.post('/verify-otp', async (req, res) => {
             return res.status(400).json({ message: 'Phone and OTP are required' });
         }
 
-        const isValid = await fallbackDB.verifyOTP(phone, otp);
-        if (!isValid) {
+        if (!twilioClient) {
+            return res.status(503).json({ message: 'SMS service is not configured. Please contact support.' });
+        }
+
+        const e164 = toE164India(phone);
+        const check = await twilioClient.verify.v2
+            .services(process.env.TWILIO_VERIFY_SERVICE_SID)
+            .verificationChecks.create({ to: e164, code: otp });
+
+        if (check.status !== 'approved') {
             return res.status(400).json({ message: 'Invalid or expired OTP code' });
         }
 
         const isOnline = mongoose.connection.readyState === 1;
         let user;
-        const email = `${phone}@luxe.com`;
 
         if (isOnline) {
-            user = await User.findOne({ email });
+            user = await User.findOne({ phone });
             if (!user) {
                 user = await User.create({
-                    name: `Customer ${phone.substring(phone.length - 4)}`,
-                    email: email,
-                    password: bcrypt.hashSync('dummy_otp_pass_change_me', 10),
+                    name: `Customer ${phone.slice(-4)}`,
+                    email: `${phone.replace(/\D/g, '')}@phone.luxe.com`,
+                    password: bcrypt.hashSync(crypto.randomBytes(20).toString('hex'), 10),
+                    phone,
                     role: 'customer',
                 });
             }
@@ -355,6 +384,7 @@ router.post('/verify-otp', async (req, res) => {
                 id: user._id,
                 name: user.name,
                 email: user.email,
+                phone: user.phone,
                 role: user.role,
             },
         });

@@ -1,8 +1,9 @@
-// import dns from 'dns';
+// dotenv must be the first import — ES module imports are hoisted and evaluated
+// before any function call in this file, so dotenv.config() would fire too late.
+import 'dotenv/config';
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import dns from 'node:dns';
@@ -19,8 +20,6 @@ import orderRoutes from './routes/orders.js';
 import dashboardRoutes from './routes/dashboard.js';
 import userRoutes from './routes/users.js';
 import paymentRoutes from './routes/payment.js';
-
-dotenv.config();
 
 const app = express();
 
