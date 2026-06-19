@@ -48,6 +48,15 @@ app.get('/', (req, res) => {
     res.json({ message: 'Welcome to the LUXE E-commerce API' });
 });
 
+// Keep-alive: ping self to prevent Render free tier from sleeping
+const keepAlive = () => {
+    const url = process.env.RENDER_EXTERNAL_URL;
+    if (!url) return;
+    fetch(url).catch(() => {});
+};
+setInterval(keepAlive, 10 * 60 * 1000);
+setInterval(keepAlive, 14 * 60 * 1000);
+
 // Database connection
 const PORT = process.env.PORT || 5000;
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/luxe-ecom';
