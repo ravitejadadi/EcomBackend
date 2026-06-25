@@ -32,6 +32,11 @@ const userSchema = new mongoose.Schema(
             sparse: true,
             unique: true,
         },
+        googleId: {
+            type: String,
+            sparse: true,
+            unique: true,
+        },
         resetPasswordToken: { type: String },
         resetPasswordExpires: { type: Date },
     },

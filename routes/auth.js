@@ -4,19 +4,15 @@ import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
 import crypto from 'crypto';
 import nodemailer from 'nodemailer';
-import twilio from 'twilio';
+import { OAuth2Client } from 'google-auth-library';
 import User from '../models/User.js';
 import { verifyToken } from '../middleware/auth.js';
 import { fallbackDB } from '../utils/dbFallback.js';
 
 const router = express.Router();
 
-// ─── Twilio Verify client (singleton) ────────────────────────────────────────
-const twilioClient = (() => {
-    const { TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN } = process.env;
-    if (!TWILIO_ACCOUNT_SID || !TWILIO_AUTH_TOKEN) return null;
-    return twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
-})();
+// ─── Google OAuth client ──────────────────────────────────────────────────────
+const googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
 // ─── Gmail SMTP transporter (singleton) ─────────────────────────────────────
 const smtpTransporter = (() => {
@@ -425,79 +421,46 @@ router.get('/me', verifyToken, async (req, res) => {
     });
 });
 
-// @desc    Send OTP to phone via Twilio Verify
-// @route   POST /api/auth/send-otp
+// @desc    Sign in / register via Google OAuth
+// @route   POST /api/auth/google
 // @access  Public
-// Normalize any Indian phone format to E.164 (+91XXXXXXXXXX)
-function toE164India(raw) {
-    const digits = String(raw).replace(/\D/g, '');
-    if (digits.startsWith('91') && digits.length === 12) return `+${digits}`;
-    if (digits.length === 10) return `+91${digits}`;
-    return `+${digits}`; // already has country code, just missing +
-}
-
-router.post('/send-otp', async (req, res) => {
+router.post('/google', async (req, res) => {
     try {
-        const { phone } = req.body;
-        if (!phone) {
-            return res.status(400).json({ message: 'Phone number is required' });
+        const { credential } = req.body;
+        if (!credential) {
+            return res.status(400).json({ message: 'Google credential is required.' });
         }
 
-        if (!twilioClient) {
-            return res.status(503).json({ message: 'SMS service is not configured. Please contact support.' });
+        if (!process.env.GOOGLE_CLIENT_ID) {
+            return res.status(503).json({ message: 'Google sign-in is not configured. Please contact support.' });
         }
 
-        const e164 = toE164India(phone);
-        await twilioClient.verify.v2
-            .services(process.env.TWILIO_VERIFY_SERVICE_SID)
-            .verifications.create({ to: e164, channel: 'sms' });
-
-        res.json({ message: 'OTP sent successfully' });
-    } catch (error) {
-        console.error('Send OTP error:', error);
-        res.status(500).json({ message: 'Failed to send OTP. Please check the phone number and try again.' });
-    }
-});
-
-// @desc    Verify OTP and login/register
-// @route   POST /api/auth/verify-otp
-// @access  Public
-router.post('/verify-otp', async (req, res) => {
-    try {
-        const { phone, otp } = req.body;
-        if (!phone || !otp) {
-            return res.status(400).json({ message: 'Phone and OTP are required' });
-        }
-
-        if (!twilioClient) {
-            return res.status(503).json({ message: 'SMS service is not configured. Please contact support.' });
-        }
-
-        const e164 = toE164India(phone);
-        const check = await twilioClient.verify.v2
-            .services(process.env.TWILIO_VERIFY_SERVICE_SID)
-            .verificationChecks.create({ to: e164, code: otp });
-
-        if (check.status !== 'approved') {
-            return res.status(400).json({ message: 'Invalid or expired OTP code' });
-        }
+        const ticket = await googleClient.verifyIdToken({
+            idToken: credential,
+            audience: process.env.GOOGLE_CLIENT_ID,
+        });
+        const { sub: googleId, email, name, picture } = ticket.getPayload();
 
         const isOnline = mongoose.connection.readyState === 1;
         let user;
 
         if (isOnline) {
-            user = await User.findOne({ phone });
+            user = await User.findOne({ email });
             if (!user) {
                 user = await User.create({
-                    name: `Customer ${phone.slice(-4)}`,
-                    email: `${phone.replace(/\D/g, '')}@phone.theelegant.com`,
-                    password: bcrypt.hashSync(crypto.randomBytes(20).toString('hex'), 10),
-                    phone,
+                    name,
+                    email,
+                    googleId,
+                    avatar: picture,
+                    password: crypto.randomBytes(20).toString('hex'),
                     role: 'customer',
                 });
+            } else if (!user.googleId) {
+                user.googleId = googleId;
+                await user.save();
             }
         } else {
-            user = await fallbackDB.findOrCreateUserByPhone(phone);
+            return res.status(503).json({ message: 'Google sign-in requires a live database connection. Please try again.' });
         }
 
         res.json({
@@ -506,13 +469,12 @@ router.post('/verify-otp', async (req, res) => {
                 id: user._id,
                 name: user.name,
                 email: user.email,
-                phone: user.phone,
                 role: user.role,
             },
         });
     } catch (error) {
-        console.error('Verify OTP error:', error);
-        res.status(500).json({ message: 'Server error verifying OTP' });
+        console.error('Google auth error:', error);
+        res.status(401).json({ message: 'Google sign-in failed. Please try again.' });
     }
 });
 
