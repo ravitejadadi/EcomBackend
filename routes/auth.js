@@ -8,6 +8,7 @@ import { OAuth2Client } from 'google-auth-library';
 import User from '../models/User.js';
 import { verifyToken } from '../middleware/auth.js';
 import { fallbackDB } from '../utils/dbFallback.js';
+import { sendOtp, verifyOtp } from '../utils/msg91.js';
 
 const router = express.Router();
 
@@ -584,6 +585,146 @@ router.post('/reset-password', async (req, res) => {
     } catch (error) {
         console.error('Reset password error:', error);
         res.status(500).json({ message: 'Server error' });
+    }
+});
+
+// @desc    Send OTP to a mobile phone
+// @route   POST /api/auth/otp/send
+// @access  Public
+router.post('/otp/send', async (req, res) => {
+    try {
+        const { phone } = req.body;
+        if (!phone) {
+            return res.status(400).json({ message: 'Phone number is required' });
+        }
+
+        // Basic phone validation (only digits, length 10 to 15)
+        if (!/^\d{10,15}$/.test(phone)) {
+            return res.status(400).json({ message: 'Invalid phone number. Provide country code without leading "+" or space (e.g. 919876543210).' });
+        }
+
+        await sendOtp(phone);
+        res.json({ message: 'OTP sent successfully' });
+    } catch (error) {
+        console.error('OTP Send error:', error);
+        res.status(500).json({ message: error.message || 'Failed to send OTP' });
+    }
+});
+
+// @desc    Verify OTP code and log in or request profile registration
+// @route   POST /api/auth/otp/verify
+// @access  Public
+router.post('/otp/verify', async (req, res) => {
+    try {
+        const { phone, otp } = req.body;
+        if (!phone || !otp) {
+            return res.status(400).json({ message: 'Phone and OTP are required' });
+        }
+
+        const verification = await verifyOtp(phone, otp);
+        if (!verification.success) {
+            return res.status(400).json({ message: verification.message });
+        }
+
+        const isOnline = mongoose.connection.readyState === 1;
+        let user;
+        if (isOnline) {
+            user = await User.findOne({ phone });
+        } else {
+            user = await fallbackDB.findUserByPhone(phone);
+        }
+
+        if (user) {
+            res.json({
+                token: generateToken(user._id),
+                user: {
+                    id: user._id,
+                    name: user.name,
+                    email: user.email,
+                    role: user.role,
+                },
+            });
+        } else {
+            res.json({
+                status: 'need_registration',
+                phone,
+                message: 'OTP verified. Profile registration required.'
+            });
+        }
+    } catch (error) {
+        console.error('OTP Verify error:', error);
+        res.status(500).json({ message: 'Server error during OTP verification' });
+    }
+});
+
+// @desc    Complete registration for a verified phone number
+// @route   POST /api/auth/otp/register
+// @access  Public
+router.post('/otp/register', async (req, res) => {
+    try {
+        const { phone, otp, name, email } = req.body;
+        if (!phone || !otp || !name || !email) {
+            return res.status(400).json({ message: 'All fields (phone, otp, name, email) are required' });
+        }
+
+        // Re-verify the OTP for security
+        const verification = await verifyOtp(phone, otp);
+        if (!verification.success) {
+            return res.status(400).json({ message: 'Invalid or expired OTP verification code.' });
+        }
+
+        const isOnline = mongoose.connection.readyState === 1;
+        let emailExists;
+        let phoneExists;
+
+        if (isOnline) {
+            emailExists = await User.findOne({ email });
+            phoneExists = await User.findOne({ phone });
+        } else {
+            emailExists = await fallbackDB.findUserByEmail(email);
+            phoneExists = await fallbackDB.findUserByPhone(phone);
+        }
+
+        if (emailExists) {
+            return res.status(400).json({ message: 'This email is already registered.' });
+        }
+        if (phoneExists) {
+            return res.status(400).json({ message: 'This phone number is already registered.' });
+        }
+
+        let user;
+        const randomPassword = crypto.randomBytes(16).toString('hex');
+
+        if (isOnline) {
+            user = await User.create({
+                name,
+                email,
+                phone,
+                password: randomPassword,
+                role: 'customer',
+            });
+        } else {
+            user = await fallbackDB.createUser({
+                name,
+                email,
+                phone,
+                password: randomPassword,
+                role: 'customer',
+            });
+        }
+
+        res.status(201).json({
+            token: generateToken(user._id),
+            user: {
+                id: user._id,
+                name: user.name,
+                email: user.email,
+                role: user.role,
+            },
+        });
+    } catch (error) {
+        console.error('OTP Register error:', error);
+        res.status(500).json({ message: 'Server error during registration' });
     }
 });
 

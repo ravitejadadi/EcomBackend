@@ -101,6 +101,11 @@ export const fallbackDB = {
         return users.find((u) => u.email.toLowerCase() === email.toLowerCase());
     },
 
+    async findUserByPhone(phone) {
+        const users = readJSON(USERS_FILE);
+        return users.find((u) => u.phone === phone);
+    },
+
     async findUserById(id) {
         const users = readJSON(USERS_FILE);
         return users.find((u) => u._id === id);
@@ -115,6 +120,7 @@ export const fallbackDB = {
             _id: 'fb-user-' + Math.random().toString(36).substring(2, 9),
             name: user.name,
             email: user.email.toLowerCase(),
+            phone: user.phone || undefined,
             password: hashedPassword,
             role: user.role || 'customer',
             createdAt: new Date().toISOString(),
