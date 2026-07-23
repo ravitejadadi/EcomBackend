@@ -4,6 +4,7 @@ import Order from '../models/Order.js';
 import Product from '../models/Product.js';
 import { verifyToken, isAdmin, optionalAuth } from '../middleware/auth.js';
 import { fallbackDB } from '../utils/dbFallback.js';
+import { sendOrderConfirmationEmail } from '../utils/emailService.js';
 
 const router = express.Router();
 
@@ -104,6 +105,9 @@ router.post('/', optionalAuth, async (req, res) => {
                 totalAmount,
             });
 
+            // Send booking confirmation email asynchronously
+            sendOrderConfirmationEmail(order);
+
             res.status(201).json(order);
         } else {
             // Offline fallback
@@ -163,6 +167,9 @@ router.post('/', optionalAuth, async (req, res) => {
                 gstAmount,
                 totalAmount,
             });
+
+            // Send booking confirmation email asynchronously
+            sendOrderConfirmationEmail(order);
 
             res.status(201).json(order);
         }

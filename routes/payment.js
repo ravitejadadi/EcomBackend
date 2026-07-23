@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import Order from '../models/Order.js';
 import Product from '../models/Product.js';
 import { optionalAuth } from '../middleware/auth.js';
+import { sendOrderConfirmationEmail } from '../utils/emailService.js';
 
 const router = express.Router();
 
@@ -150,6 +151,9 @@ router.post('/verify', optionalAuth, async (req, res) => {
             gstAmount,
             totalAmount,
         });
+
+        // Send booking confirmation email asynchronously
+        sendOrderConfirmationEmail(order);
 
         res.status(201).json(order);
     } catch (error) {
