@@ -9,15 +9,46 @@ import { sendOrderConfirmationEmail } from '../utils/emailService.js';
 
 const router = express.Router();
 
-// Razorpay instance — initialised once using env credentials
+// Helper: Check if a key string is a dummy placeholder
+const isPlaceholder = (val) => {
+    if (!val || typeof val !== 'string') return true;
+    const clean = val.trim().toLowerCase();
+    return (
+        clean === '' ||
+        clean.includes('xxxxxxxx') ||
+        clean.includes('placeholder') ||
+        clean.includes('your_') ||
+        clean.includes('change_me')
+    );
+};
+
+// Razorpay instance helper — initialised with env credentials for Test (rzp_test_) or Production (rzp_live_)
 const getRazorpay = () => {
-    const { RAZORPAY_KEY_ID, RAZORPAY_KEY_SECRET } = process.env;
-    if (!RAZORPAY_KEY_ID || !RAZORPAY_KEY_SECRET ||
-        RAZORPAY_KEY_ID === 'rzp_test_xxxxxxxxxxxx') {
+    const keyId = process.env.RAZORPAY_KEY_ID;
+    const keySecret = process.env.RAZORPAY_KEY_SECRET;
+
+    if (isPlaceholder(keyId) || isPlaceholder(keySecret)) {
         return null;
     }
-    return new Razorpay({ key_id: RAZORPAY_KEY_ID, key_secret: RAZORPAY_KEY_SECRET });
+
+    return new Razorpay({ key_id: keyId.trim(), key_secret: keySecret.trim() });
 };
+
+// @desc    Get Razorpay gateway configuration status
+// @route   GET /api/payment/config
+// @access  Public
+router.get('/config', (req, res) => {
+    const razorpay = getRazorpay();
+    const keyId = (process.env.RAZORPAY_KEY_ID || '').trim();
+    const isLive = keyId.startsWith('rzp_live_');
+    const isTest = keyId.startsWith('rzp_test_');
+
+    res.json({
+        configured: Boolean(razorpay),
+        mode: isLive ? 'live' : isTest ? 'test' : 'unconfigured',
+        key: Boolean(razorpay) ? keyId : null,
+    });
+});
 
 // @desc    Create a Razorpay order (step 1 of payment)
 // @route   POST /api/payment/create-order
@@ -26,19 +57,29 @@ router.post('/create-order', async (req, res) => {
     try {
         const { amount } = req.body; // amount in rupees from frontend
 
-        if (!amount || amount <= 0) {
-            return res.status(400).json({ message: 'Valid amount is required.' });
+        const numericAmount = Number(amount);
+        if (isNaN(numericAmount) || numericAmount <= 0) {
+            return res.status(400).json({ message: 'Valid payment amount is required.' });
         }
 
         const razorpay = getRazorpay();
         if (!razorpay) {
-            return res.status(503).json({ message: 'Payment gateway is not configured. Please contact support.' });
+            return res.status(503).json({
+                message: 'Razorpay payment gateway is not properly configured. Please update RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET in environment variables.',
+            });
         }
 
+        const keyId = process.env.RAZORPAY_KEY_ID.trim();
+        const mode = keyId.startsWith('rzp_live_') ? 'live' : 'test';
+
         const options = {
-            amount: Math.round(amount * 100), // Razorpay expects paise (1 INR = 100 paise)
+            amount: Math.round(numericAmount * 100), // Razorpay expects amount in paise (1 INR = 100 paise)
             currency: 'INR',
             receipt: `receipt_${Date.now()}`,
+            notes: {
+                environment: mode,
+                store: 'THE ELEGANT',
+            },
         };
 
         const razorpayOrder = await razorpay.orders.create(options);
@@ -47,11 +88,12 @@ router.post('/create-order', async (req, res) => {
             razorpayOrderId: razorpayOrder.id,
             amount: razorpayOrder.amount,
             currency: razorpayOrder.currency,
-            key: process.env.RAZORPAY_KEY_ID, // sent to frontend to initialise Razorpay checkout
+            key: keyId, // sent to frontend to initialise Razorpay checkout modal
+            mode,
         });
     } catch (error) {
         console.error('Razorpay create-order error:', error);
-        res.status(500).json({ message: 'Failed to create payment order. Please try again.' });
+        res.status(500).json({ message: 'Failed to create payment order with Razorpay. Please try again.' });
     }
 });
 
@@ -73,13 +115,25 @@ router.post('/verify', optionalAuth, async (req, res) => {
             return res.status(400).json({ message: 'Payment verification data is incomplete.' });
         }
 
-        // Verify HMAC-SHA256 signature
+        const keySecret = (process.env.RAZORPAY_KEY_SECRET || '').trim();
+        if (isPlaceholder(keySecret)) {
+            return res.status(500).json({ message: 'Server configuration error: missing Razorpay secret key.' });
+        }
+
+        // Verify HMAC-SHA256 signature using timing-safe comparison to prevent side-channel leaks
         const expectedSignature = crypto
-            .createHmac('sha256', process.env.RAZORPAY_KEY_SECRET)
+            .createHmac('sha256', keySecret)
             .update(`${razorpay_order_id}|${razorpay_payment_id}`)
             .digest('hex');
 
-        if (expectedSignature !== razorpay_signature) {
+        const expectedBuf = Buffer.from(expectedSignature, 'utf8');
+        const receivedBuf = Buffer.from(razorpay_signature, 'utf8');
+
+        const isSignatureValid =
+            expectedBuf.length === receivedBuf.length &&
+            crypto.timingSafeEqual(expectedBuf, receivedBuf);
+
+        if (!isSignatureValid) {
             return res.status(400).json({ message: 'Payment verification failed. Invalid signature.' });
         }
 
