@@ -55,7 +55,7 @@ router.get('/config', (req, res) => {
 // @access  Public
 router.post('/create-order', async (req, res) => {
     try {
-        const { amount } = req.body; // amount in rupees from frontend
+        const { amount, currency = 'INR' } = req.body; // amount in major units (e.g. INR/USD) from frontend
 
         const numericAmount = Number(amount);
         if (isNaN(numericAmount) || numericAmount <= 0) {
@@ -72,9 +72,11 @@ router.post('/create-order', async (req, res) => {
         const keyId = process.env.RAZORPAY_KEY_ID.trim();
         const mode = keyId.startsWith('rzp_live_') ? 'live' : 'test';
 
+        const targetCurrency = String(currency).toUpperCase().trim();
+
         const options = {
-            amount: Math.round(numericAmount * 100), // Razorpay expects amount in paise (1 INR = 100 paise)
-            currency: 'INR',
+            amount: Math.round(numericAmount * 100), // Razorpay expects amount in subunits (e.g., 1 INR = 100 paise, 1 USD = 100 cents)
+            currency: targetCurrency,
             receipt: `receipt_${Date.now()}`,
             notes: {
                 environment: mode,
@@ -147,7 +149,8 @@ router.post('/verify', optionalAuth, async (req, res) => {
         const itemsToSave = [];
 
         for (const item of orderItems) {
-            const product = await Product.findOne({ id: item.id });
+            const product = await Product.findOne({ id: item.id }) ||
+                            await Product.findById(item.id).catch(() => null);
             if (!product) {
                 return res.status(404).json({ message: `Product ${item.id} not found.` });
             }

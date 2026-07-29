@@ -103,7 +103,7 @@ router.get('/', async (req, res) => {
                     { category: { $regex: search, $options: 'i' } },
                 ];
             }
-            productsList = await Product.find(query);
+            productsList = await Product.find(query).sort({ createdAt: -1 });
         } else {
             productsList = await fallbackDB.getProducts({ category, gender, search });
         }

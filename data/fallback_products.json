@@ -1,1084 +1,66 @@
 [
   {
-    "id": "run-1",
-    "name": "Velocity NITRO 4",
-    "slug": "velocity-nitro-4",
-    "description": "Experience explosive speed with our advanced NITRO foam technology. Engineered for runners who demand performance.",
-    "price": 12999,
-    "compareAtPrice": 15999,
-    "currency": "INR",
-    "gender": "unisex",
-    "images": [
-      {
-        "id": "img-run-1",
-        "url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&q=80",
-        "alt": "Velocity NITRO 4 - Electric Blue",
-        "position": 1
-      }
-    ],
-    "variants": [
-      {
-        "id": "vr1-1",
-        "size": "7",
-        "color": "Electric Blue",
-        "sku": "VN4-EB-7",
-        "price": 12999,
-        "inStock": true,
-        "inventory": 14
-      },
-      {
-        "id": "vr1-2",
-        "size": "8",
-        "color": "Electric Blue",
-        "sku": "VN4-EB-8",
-        "price": 12999,
-        "inStock": true,
-        "inventory": 19
-      },
-      {
-        "id": "vr1-3",
-        "size": "9",
-        "color": "Electric Blue",
-        "sku": "VN4-EB-9",
-        "price": 12999,
-        "inStock": true,
-        "inventory": 18
-      },
-      {
-        "id": "vr1-4",
-        "size": "10",
-        "color": "Electric Blue",
-        "sku": "VN4-EB-10",
-        "price": 12999,
-        "inStock": true,
-        "inventory": 12
-      }
-    ],
-    "category": "Running",
-    "subcategory": "Performance Running",
-    "tags": [
-      "running",
-      "nitro",
-      "performance",
-      "bestseller"
-    ],
-    "badges": [
-      "NEW",
-      "BESTSELLER"
-    ],
-    "inStock": true,
-    "inventory": 63,
-    "material": "NITRO Foam, Engineered Mesh",
-    "careInstructions": "Wipe clean with damp cloth",
-    "sizeGuide": "footwear",
-    "createdAt": "2024-03-01T00:00:00Z",
-    "_id": "fb-prod-run-1"
-  },
-  {
-    "id": "run-2",
-    "name": "Deviate ELITE 3",
-    "slug": "deviate-elite-3",
-    "description": "Carbon-plated racing shoe designed for elite performance. Break your personal records.",
-    "price": 16999,
-    "compareAtPrice": null,
-    "currency": "INR",
-    "gender": "unisex",
-    "images": [
-      {
-        "id": "img-run-2",
-        "url": "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=800&q=80",
-        "alt": "Deviate ELITE 3",
-        "position": 1
-      }
-    ],
-    "variants": [
-      {
-        "id": "vr2-1",
-        "size": "8",
-        "color": "Neon Yellow",
-        "sku": "DE3-NY-8",
-        "price": 16999,
-        "inStock": true,
-        "inventory": 10
-      },
-      {
-        "id": "vr2-2",
-        "size": "9",
-        "color": "Neon Yellow",
-        "sku": "DE3-NY-9",
-        "price": 16999,
-        "inStock": true,
-        "inventory": 12
-      },
-      {
-        "id": "vr2-3",
-        "size": "10",
-        "color": "Neon Yellow",
-        "sku": "DE3-NY-10",
-        "price": 16999,
-        "inStock": true,
-        "inventory": 8
-      }
-    ],
-    "category": "Running",
-    "subcategory": "Racing",
-    "tags": [
-      "running",
-      "racing",
-      "carbon-plate",
-      "elite"
-    ],
-    "badges": [
-      "LIMITED"
-    ],
-    "inStock": true,
-    "inventory": 30,
-    "material": "Carbon Fiber Plate, NITRO Elite Foam",
-    "careInstructions": "Wipe clean, air dry",
-    "sizeGuide": "footwear",
-    "createdAt": "2024-02-15T00:00:00Z",
-    "_id": "fb-prod-run-2"
-  },
-  {
-    "id": "run-3",
-    "name": "ForeverRUN NITRO",
-    "slug": "foreverrun-nitro",
-    "description": "Maximum cushioning for long-distance comfort. Your perfect training companion.",
-    "price": 11999,
-    "compareAtPrice": 13999,
-    "currency": "INR",
-    "gender": "unisex",
-    "images": [
-      {
-        "id": "img-run-3",
-        "url": "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=800&q=80",
-        "alt": "ForeverRUN NITRO",
-        "position": 1
-      }
-    ],
-    "variants": [
-      {
-        "id": "vr3-1",
-        "size": "7",
-        "color": "Black/White",
-        "sku": "FRN-BW-7",
-        "price": 11999,
-        "inStock": true,
-        "inventory": 15
-      },
-      {
-        "id": "vr3-2",
-        "size": "8",
-        "color": "Black/White",
-        "sku": "FRN-BW-8",
-        "price": 11999,
-        "inStock": true,
-        "inventory": 18
-      },
-      {
-        "id": "vr3-3",
-        "size": "9",
-        "color": "Black/White",
-        "sku": "FRN-BW-9",
-        "price": 11999,
-        "inStock": true,
-        "inventory": 14
-      },
-      {
-        "id": "vr3-4",
-        "size": "10",
-        "color": "Black/White",
-        "sku": "FRN-BW-10",
-        "price": 11999,
-        "inStock": true,
-        "inventory": 10
-      }
-    ],
-    "category": "Running",
-    "subcategory": "Long Distance",
-    "tags": [
-      "running",
-      "cushioning",
-      "training",
-      "comfort"
-    ],
-    "badges": [
-      "SALE"
-    ],
-    "inStock": true,
-    "inventory": 57,
-    "material": "Dual NITRO Foam, Breathable Mesh",
-    "careInstructions": "Machine washable, air dry",
-    "sizeGuide": "footwear",
-    "createdAt": "2024-01-20T00:00:00Z",
-    "_id": "fb-prod-run-3"
-  },
-  {
-    "id": "run-4",
-    "name": "Magnify NITRO 2",
-    "slug": "magnify-nitro-2",
-    "description": "Versatile running shoe for everyday training. Comfort meets performance.",
-    "price": 9999,
-    "compareAtPrice": null,
-    "currency": "INR",
-    "gender": "unisex",
-    "images": [
-      {
-        "id": "img-run-4",
-        "url": "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=800&q=80",
-        "alt": "Magnify NITRO 2",
-        "position": 1
-      }
-    ],
-    "variants": [
-      {
-        "id": "vr4-1",
-        "size": "8",
-        "color": "Gray/Orange",
-        "sku": "MN2-GO-8",
-        "price": 9999,
-        "inStock": true,
-        "inventory": 20
-      },
-      {
-        "id": "vr4-2",
-        "size": "9",
-        "color": "Gray/Orange",
-        "sku": "MN2-GO-9",
-        "price": 9999,
-        "inStock": true,
-        "inventory": 22
-      },
-      {
-        "id": "vr4-3",
-        "size": "10",
-        "color": "Gray/Orange",
-        "sku": "MN2-GO-10",
-        "price": 9999,
-        "inStock": true,
-        "inventory": 18
-      }
-    ],
-    "category": "Running",
-    "subcategory": "Training",
-    "tags": [
-      "running",
-      "training",
-      "versatile",
-      "daily"
-    ],
-    "badges": [
-      "BESTSELLER"
-    ],
-    "inStock": true,
-    "inventory": 60,
-    "material": "NITRO Foam, Engineered Mesh Upper",
-    "careInstructions": "Wipe clean with damp cloth",
-    "sizeGuide": "footwear",
-    "createdAt": "2024-02-01T00:00:00Z",
-    "_id": "fb-prod-run-4"
-  },
-  {
-    "id": "run-5",
-    "name": "Softride Enzo NXT",
-    "slug": "softride-enzo-nxt",
-    "description": "Ultra-soft cushioning for a cloud-like running experience. Style meets comfort.",
-    "price": 7999,
-    "compareAtPrice": 9999,
-    "currency": "INR",
-    "gender": "unisex",
-    "images": [
-      {
-        "id": "img-run-5",
-        "url": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800&q=80",
-        "alt": "Softride Enzo NXT",
-        "position": 1
-      }
-    ],
-    "variants": [
-      {
-        "id": "vr5-1",
-        "size": "7",
-        "color": "White/Blue",
-        "sku": "SEN-WB-7",
-        "price": 7999,
-        "inStock": true,
-        "inventory": 15
-      },
-      {
-        "id": "vr5-2",
-        "size": "8",
-        "color": "White/Blue",
-        "sku": "SEN-WB-8",
-        "price": 7999,
-        "inStock": true,
-        "inventory": 20
-      },
-      {
-        "id": "vr5-3",
-        "size": "9",
-        "color": "White/Blue",
-        "sku": "SEN-WB-9",
-        "price": 7999,
-        "inStock": true,
-        "inventory": 16
-      }
-    ],
-    "category": "Running",
-    "subcategory": "Lifestyle Running",
-    "tags": [
-      "running",
-      "softride",
-      "comfort",
-      "casual"
-    ],
-    "badges": [
-      "SALE",
-      "NEW"
-    ],
-    "inStock": true,
-    "inventory": 51,
-    "material": "Softride Foam, Mesh Upper",
-    "careInstructions": "Wipe clean",
-    "sizeGuide": "footwear",
-    "createdAt": "2024-02-20T00:00:00Z",
-    "_id": "fb-prod-run-5"
-  },
-  {
-    "id": "snk-1",
-    "name": "Speedcat OG",
-    "slug": "speedcat-og",
-    "description": "Iconic motorsport-inspired sneaker. A timeless classic reborn.",
-    "price": 8999,
-    "compareAtPrice": null,
-    "currency": "INR",
-    "gender": "unisex",
-    "images": [
-      {
-        "id": "img-snk-1",
-        "url": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=800&q=80",
-        "alt": "Speedcat OG - Black",
-        "position": 1
-      }
-    ],
-    "variants": [
-      {
-        "id": "vs1-1",
-        "size": "7",
-        "color": "Black",
-        "sku": "SC-BLK-7",
-        "price": 8999,
-        "inStock": true,
-        "inventory": 12
-      },
-      {
-        "id": "vs1-2",
-        "size": "8",
-        "color": "Black",
-        "sku": "SC-BLK-8",
-        "price": 8999,
-        "inStock": true,
-        "inventory": 15
-      },
-      {
-        "id": "vs1-3",
-        "size": "9",
-        "color": "Black",
-        "sku": "SC-BLK-9",
-        "price": 8999,
-        "inStock": true,
-        "inventory": 18
-      },
-      {
-        "id": "vs1-4",
-        "size": "10",
-        "color": "Black",
-        "sku": "SC-BLK-10",
-        "price": 8999,
-        "inStock": true,
-        "inventory": 14
-      }
-    ],
-    "category": "Sneakers",
-    "subcategory": "Motorsport",
-    "tags": [
-      "sneakers",
-      "speedcat",
-      "motorsport",
-      "iconic"
-    ],
-    "badges": [
-      "BESTSELLER",
-      "TRENDING"
-    ],
-    "inStock": true,
-    "inventory": 59,
-    "material": "Premium Leather, Rubber Sole",
-    "careInstructions": "Wipe with leather cleaner",
-    "sizeGuide": "footwear",
-    "createdAt": "2024-01-10T00:00:00Z",
-    "_id": "fb-prod-snk-1"
-  },
-  {
-    "id": "snk-2",
-    "name": "Palermo Leather",
-    "slug": "palermo-leather",
-    "description": "Retro terrace style with premium leather construction. Heritage meets modern.",
-    "price": 7999,
-    "compareAtPrice": 9499,
-    "currency": "INR",
-    "gender": "unisex",
-    "images": [
-      {
-        "id": "img-snk-2",
-        "url": "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=800&q=80",
-        "alt": "Palermo Leather",
-        "position": 1
-      }
-    ],
-    "variants": [
-      {
-        "id": "vs2-1",
-        "size": "7",
-        "color": "White/Green",
-        "sku": "PL-WG-7",
-        "price": 7999,
-        "inStock": true,
-        "inventory": 10
-      },
-      {
-        "id": "vs2-2",
-        "size": "8",
-        "color": "White/Green",
-        "sku": "PL-WG-8",
-        "price": 7999,
-        "inStock": true,
-        "inventory": 14
-      },
-      {
-        "id": "vs2-3",
-        "size": "9",
-        "color": "White/Green",
-        "sku": "PL-WG-9",
-        "price": 7999,
-        "inStock": true,
-        "inventory": 12
-      }
-    ],
-    "category": "Sneakers",
-    "subcategory": "Terrace",
-    "tags": [
-      "sneakers",
-      "palermo",
-      "retro",
-      "leather"
-    ],
-    "badges": [
-      "SALE",
-      "TRENDING"
-    ],
-    "inStock": true,
-    "inventory": 36,
-    "material": "Premium Leather Upper, Gum Sole",
-    "careInstructions": "Clean with leather cleaner",
-    "sizeGuide": "footwear",
-    "createdAt": "2024-02-05T00:00:00Z",
-    "_id": "fb-prod-snk-2"
-  },
-  {
-    "id": "snk-3",
-    "name": "Suede Classic XXI",
-    "slug": "suede-classic-xxi",
-    "description": "The legendary Suede, reimagined for today. Timeless style, modern comfort.",
-    "price": 6999,
-    "compareAtPrice": null,
-    "currency": "INR",
-    "gender": "unisex",
-    "images": [
-      {
-        "id": "img-snk-3",
-        "url": "https://images.unsplash.com/photo-1552346154-21d32810aba3?w=800&q=80",
-        "alt": "Suede Classic XXI",
-        "position": 1
-      }
-    ],
-    "variants": [
-      {
-        "id": "vs3-1",
-        "size": "7",
-        "color": "Navy",
-        "sku": "SC21-NV-7",
-        "price": 6999,
-        "inStock": true,
-        "inventory": 15
-      },
-      {
-        "id": "vs3-2",
-        "size": "8",
-        "color": "Navy",
-        "sku": "SC21-NV-8",
-        "price": 6999,
-        "inStock": true,
-        "inventory": 20
-      },
-      {
-        "id": "vs3-3",
-        "size": "9",
-        "color": "Navy",
-        "sku": "SC21-NV-9",
-        "price": 6999,
-        "inStock": true,
-        "inventory": 18
-      }
-    ],
-    "category": "Sneakers",
-    "subcategory": "Classic",
-    "tags": [
-      "sneakers",
-      "suede",
-      "classic",
-      "iconic"
-    ],
-    "badges": [
-      "BESTSELLER"
-    ],
-    "inStock": true,
-    "inventory": 53,
-    "material": "Premium Suede, Rubber Sole",
-    "careInstructions": "Use suede brush and protector",
-    "sizeGuide": "footwear",
-    "createdAt": "2024-01-15T00:00:00Z",
-    "_id": "fb-prod-snk-3"
-  },
-  {
-    "id": "snk-4",
-    "name": "RS-X Efekt",
-    "slug": "rs-x-efekt",
-    "description": "Bold, chunky silhouette with futuristic design. Make a statement.",
-    "price": 9999,
-    "compareAtPrice": null,
-    "currency": "INR",
-    "gender": "unisex",
-    "images": [
-      {
-        "id": "img-snk-4",
-        "url": "https://images.unsplash.com/photo-1539185441755-769473a23570?w=800&q=80",
-        "alt": "RS-X Efekt",
-        "position": 1
-      }
-    ],
-    "variants": [
-      {
-        "id": "vs4-1",
-        "size": "8",
-        "color": "Multi",
-        "sku": "RSX-MLT-8",
-        "price": 9999,
-        "inStock": true,
-        "inventory": 12
-      },
-      {
-        "id": "vs4-2",
-        "size": "9",
-        "color": "Multi",
-        "sku": "RSX-MLT-9",
-        "price": 9999,
-        "inStock": true,
-        "inventory": 15
-      },
-      {
-        "id": "vs4-3",
-        "size": "10",
-        "color": "Multi",
-        "sku": "RSX-MLT-10",
-        "price": 9999,
-        "inStock": true,
-        "inventory": 10
-      }
-    ],
-    "category": "Sneakers",
-    "subcategory": "Chunky",
-    "tags": [
-      "sneakers",
-      "rs-x",
-      "chunky",
-      "bold"
-    ],
-    "badges": [
-      "NEW"
-    ],
-    "inStock": true,
-    "inventory": 37,
-    "material": "Mixed Materials, RS Cushioning",
-    "careInstructions": "Wipe clean with damp cloth",
-    "sizeGuide": "footwear",
-    "createdAt": "2024-03-01T00:00:00Z",
-    "_id": "fb-prod-snk-4"
-  },
-  {
-    "id": "snk-5",
-    "name": "Mostro",
-    "slug": "mostro",
-    "description": "Avant-garde design with distinctive strap system. For the bold and fearless.",
-    "price": 8499,
-    "compareAtPrice": 10999,
-    "currency": "INR",
-    "gender": "unisex",
-    "images": [
-      {
-        "id": "img-snk-5",
-        "url": "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=800&q=80",
-        "alt": "Mostro",
-        "position": 1
-      }
-    ],
-    "variants": [
-      {
-        "id": "vs5-1",
-        "size": "7",
-        "color": "Black",
-        "sku": "MST-BLK-7",
-        "price": 8499,
-        "inStock": true,
-        "inventory": 8
-      },
-      {
-        "id": "vs5-2",
-        "size": "8",
-        "color": "Black",
-        "sku": "MST-BLK-8",
-        "price": 8499,
-        "inStock": true,
-        "inventory": 10
-      },
-      {
-        "id": "vs5-3",
-        "size": "9",
-        "color": "Black",
-        "sku": "MST-BLK-9",
-        "price": 8499,
-        "inStock": true,
-        "inventory": 7
-      }
-    ],
-    "category": "Sneakers",
-    "subcategory": "Avant-Garde",
-    "tags": [
-      "sneakers",
-      "mostro",
-      "unique",
-      "fashion"
-    ],
-    "badges": [
-      "LIMITED",
-      "SALE"
-    ],
-    "inStock": true,
-    "inventory": 25,
-    "material": "Neoprene, Velcro Straps",
-    "careInstructions": "Hand wash, air dry",
-    "sizeGuide": "footwear",
-    "createdAt": "2024-02-10T00:00:00Z",
-    "_id": "fb-prod-snk-5"
-  },
-  {
-    "id": "men-1",
-    "name": "Essentials Logo Tee",
-    "slug": "essentials-logo-tee",
-    "description": "Classic cotton tee with iconic logo. Your everyday essential.",
+    "id": "ts-1",
+    "name": "Oversized Heavyweight Graphic Tee",
+    "slug": "oversized-heavyweight-graphic-tee",
+    "description": "Premium 240 GSM 100% combed cotton oversized t-shirt with signature back print.",
     "price": 1499,
-    "compareAtPrice": null,
+    "compareAtPrice": 1999,
     "currency": "INR",
     "gender": "men",
     "images": [
       {
-        "id": "img-men-1",
+        "id": "img-ts-1",
         "url": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&q=80",
-        "alt": "Essentials Logo Tee",
+        "alt": "Oversized Tee",
         "position": 1
       }
     ],
     "variants": [
       {
-        "id": "vm1-1",
+        "id": "v-ts1-1",
         "size": "S",
-        "color": "Black",
-        "sku": "ELT-BLK-S",
+        "color": "Washed Black",
+        "sku": "TS1-WB-S",
         "price": 1499,
-        "inStock": true,
-        "inventory": 25
-      },
-      {
-        "id": "vm1-2",
-        "size": "M",
-        "color": "Black",
-        "sku": "ELT-BLK-M",
-        "price": 1499,
-        "inStock": true,
-        "inventory": 30
-      },
-      {
-        "id": "vm1-3",
-        "size": "L",
-        "color": "Black",
-        "sku": "ELT-BLK-L",
-        "price": 1499,
-        "inStock": true,
-        "inventory": 28
-      },
-      {
-        "id": "vm1-4",
-        "size": "XL",
-        "color": "Black",
-        "sku": "ELT-BLK-XL",
-        "price": 1499,
-        "inStock": true,
-        "inventory": 22
-      }
-    ],
-    "category": "Mens Clothing",
-    "subcategory": "T-Shirts",
-    "tags": [
-      "tshirt",
-      "casual",
-      "essentials",
-      "cotton"
-    ],
-    "badges": [
-      "BESTSELLER"
-    ],
-    "inStock": true,
-    "inventory": 105,
-    "material": "100% Cotton",
-    "careInstructions": "Machine wash cold",
-    "sizeGuide": "standard",
-    "createdAt": "2024-01-05T00:00:00Z",
-    "_id": "fb-prod-men-1"
-  },
-  {
-    "id": "men-2",
-    "name": "Training Hoodie",
-    "slug": "training-hoodie",
-    "description": "Performance hoodie with moisture-wicking technology. Train in comfort.",
-    "price": 3999,
-    "compareAtPrice": 4999,
-    "currency": "INR",
-    "gender": "men",
-    "images": [
-      {
-        "id": "img-men-2",
-        "url": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&q=80",
-        "alt": "Training Hoodie",
-        "position": 1
-      }
-    ],
-    "variants": [
-      {
-        "id": "vm2-1",
-        "size": "M",
-        "color": "Gray",
-        "sku": "TH-GRY-M",
-        "price": 3999,
         "inStock": true,
         "inventory": 15
       },
       {
-        "id": "vm2-2",
-        "size": "L",
-        "color": "Gray",
-        "sku": "TH-GRY-L",
-        "price": 3999,
-        "inStock": true,
-        "inventory": 18
-      },
-      {
-        "id": "vm2-3",
-        "size": "XL",
-        "color": "Gray",
-        "sku": "TH-GRY-XL",
-        "price": 3999,
-        "inStock": true,
-        "inventory": 12
-      }
-    ],
-    "category": "Mens Clothing",
-    "subcategory": "Hoodies",
-    "tags": [
-      "hoodie",
-      "training",
-      "performance",
-      "activewear"
-    ],
-    "badges": [
-      "SALE"
-    ],
-    "inStock": true,
-    "inventory": 45,
-    "material": "Polyester Blend, dryCELL Technology",
-    "careInstructions": "Machine wash cold, tumble dry low",
-    "sizeGuide": "standard",
-    "createdAt": "2024-02-01T00:00:00Z",
-    "_id": "fb-prod-men-2"
-  },
-  {
-    "id": "men-3",
-    "name": "Scuderia Ferrari Polo",
-    "slug": "scuderia-ferrari-polo",
-    "description": "Official Ferrari team polo. Racing heritage meets street style.",
-    "price": 3499,
-    "compareAtPrice": null,
-    "currency": "INR",
-    "gender": "men",
-    "images": [
-      {
-        "id": "img-men-3",
-        "url": "https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=800&q=80",
-        "alt": "Scuderia Ferrari Polo",
-        "position": 1
-      }
-    ],
-    "variants": [
-      {
-        "id": "vm3-1",
-        "size": "S",
-        "color": "Red",
-        "sku": "SFP-RED-S",
-        "price": 3499,
-        "inStock": true,
-        "inventory": 12
-      },
-      {
-        "id": "vm3-2",
+        "id": "v-ts1-2",
         "size": "M",
-        "color": "Red",
-        "sku": "SFP-RED-M",
-        "price": 3499,
-        "inStock": true,
-        "inventory": 16
-      },
-      {
-        "id": "vm3-3",
-        "size": "L",
-        "color": "Red",
-        "sku": "SFP-RED-L",
-        "price": 3499,
-        "inStock": true,
-        "inventory": 14
-      }
-    ],
-    "category": "Mens Clothing",
-    "subcategory": "Polos",
-    "tags": [
-      "polo",
-      "ferrari",
-      "motorsport",
-      "premium"
-    ],
-    "badges": [
-      "MOTORSPORT",
-      "NEW"
-    ],
-    "inStock": true,
-    "inventory": 42,
-    "material": "Cotton Pique",
-    "careInstructions": "Machine wash cold",
-    "sizeGuide": "standard",
-    "createdAt": "2024-02-15T00:00:00Z",
-    "_id": "fb-prod-men-3"
-  },
-  {
-    "id": "men-4",
-    "name": "Winterwear Puffer Jacket",
-    "slug": "winterwear-puffer-jacket",
-    "description": "Insulated puffer jacket for extreme cold. Stay warm, look cool.",
-    "price": 7999,
-    "compareAtPrice": 9999,
-    "currency": "INR",
-    "gender": "men",
-    "images": [
-      {
-        "id": "img-men-4",
-        "url": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&q=80",
-        "alt": "Winterwear Puffer Jacket",
-        "position": 1
-      }
-    ],
-    "variants": [
-      {
-        "id": "vm4-1",
-        "size": "M",
-        "color": "Black",
-        "sku": "WPJ-BLK-M",
-        "price": 7999,
-        "inStock": true,
-        "inventory": 10
-      },
-      {
-        "id": "vm4-2",
-        "size": "L",
-        "color": "Black",
-        "sku": "WPJ-BLK-L",
-        "price": 7999,
-        "inStock": true,
-        "inventory": 12
-      },
-      {
-        "id": "vm4-3",
-        "size": "XL",
-        "color": "Black",
-        "sku": "WPJ-BLK-XL",
-        "price": 7999,
-        "inStock": true,
-        "inventory": 8
-      }
-    ],
-    "category": "Mens Clothing",
-    "subcategory": "Jackets",
-    "tags": [
-      "jacket",
-      "winter",
-      "puffer",
-      "warm"
-    ],
-    "badges": [
-      "WINTERWEAR",
-      "SALE"
-    ],
-    "inStock": true,
-    "inventory": 30,
-    "material": "Polyester, Synthetic Insulation",
-    "careInstructions": "Machine wash cold, tumble dry low",
-    "sizeGuide": "outerwear",
-    "createdAt": "2024-01-20T00:00:00Z",
-    "_id": "fb-prod-men-4"
-  },
-  {
-    "id": "men-5",
-    "name": "Active Sports Shorts",
-    "slug": "active-sports-shorts",
-    "description": "Lightweight performance shorts with dryCELL technology. Move freely.",
-    "price": 1999,
-    "compareAtPrice": null,
-    "currency": "INR",
-    "gender": "men",
-    "images": [
-      {
-        "id": "img-men-5",
-        "url": "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=800&q=80",
-        "alt": "Active Sports Shorts",
-        "position": 1
-      }
-    ],
-    "variants": [
-      {
-        "id": "vm5-1",
-        "size": "S",
-        "color": "Navy",
-        "sku": "ASS-NV-S",
-        "price": 1999,
+        "color": "Washed Black",
+        "sku": "TS1-WB-M",
+        "price": 1499,
         "inStock": true,
         "inventory": 20
       },
       {
-        "id": "vm5-2",
-        "size": "M",
-        "color": "Navy",
-        "sku": "ASS-NV-M",
-        "price": 1999,
-        "inStock": true,
-        "inventory": 25
-      },
-      {
-        "id": "vm5-3",
+        "id": "v-ts1-3",
         "size": "L",
-        "color": "Navy",
-        "sku": "ASS-NV-L",
-        "price": 1999,
-        "inStock": true,
-        "inventory": 22
-      }
-    ],
-    "category": "Mens Clothing",
-    "subcategory": "Shorts",
-    "tags": [
-      "shorts",
-      "sports",
-      "training",
-      "performance"
-    ],
-    "badges": [
-      "BESTSELLER"
-    ],
-    "inStock": true,
-    "inventory": 67,
-    "material": "Polyester, dryCELL Technology",
-    "careInstructions": "Machine wash cold",
-    "sizeGuide": "standard",
-    "createdAt": "2024-02-10T00:00:00Z",
-    "_id": "fb-prod-men-5"
-  },
-  {
-    "id": "women-1",
-    "name": "Studio The Elegant Tank",
-    "slug": "studio-the-elegant-tank",
-    "description": "Premium training tank with seamless construction. Elevate your workout.",
-    "price": 2499,
-    "compareAtPrice": null,
-    "currency": "INR",
-    "gender": "women",
-    "images": [
-      {
-        "id": "img-women-1",
-        "url": "https://images.unsplash.com/photo-1562157873-818bc0726f68?w=800&q=80",
-        "alt": "Studio The Elegant Tank",
-        "position": 1
-      }
-    ],
-    "variants": [
-      {
-        "id": "vw1-1",
-        "size": "XS",
-        "color": "Pink",
-        "sku": "SLT-PNK-XS",
-        "price": 2499,
-        "inStock": true,
-        "inventory": 15
-      },
-      {
-        "id": "vw1-2",
-        "size": "S",
-        "color": "Pink",
-        "sku": "SLT-PNK-S",
-        "price": 2499,
-        "inStock": true,
-        "inventory": 20
-      },
-      {
-        "id": "vw1-3",
-        "size": "M",
-        "color": "Pink",
-        "sku": "SLT-PNK-M",
-        "price": 2499,
+        "color": "Washed Black",
+        "sku": "TS1-WB-L",
+        "price": 1499,
         "inStock": true,
         "inventory": 18
       },
       {
-        "id": "vw1-4",
-        "size": "L",
-        "color": "Pink",
-        "sku": "SLT-PNK-L",
-        "price": 2499,
+        "id": "v-ts1-4",
+        "size": "XL",
+        "color": "Washed Black",
+        "sku": "TS1-WB-XL",
+        "price": 1499,
         "inStock": true,
         "inventory": 12
       }
     ],
-    "category": "Womens Clothing",
-    "subcategory": "Tops",
+    "category": "T-Shirts",
+    "subcategory": "Oversized T-Shirts",
     "tags": [
-      "tank",
-      "training",
-      "studio",
-      "activewear"
+      "t-shirts",
+      "oversized",
+      "graphic",
+      "streetwear"
     ],
     "badges": [
       "NEW",
@@ -1086,823 +68,1442 @@
     ],
     "inStock": true,
     "inventory": 65,
-    "material": "Seamless Knit, Moisture-Wicking",
-    "careInstructions": "Machine wash cold, hang dry",
+    "material": "100% Combed Cotton 240 GSM",
+    "careInstructions": "Machine wash cold, inside out",
     "sizeGuide": "standard",
-    "createdAt": "2024-02-20T00:00:00Z",
-    "_id": "fb-prod-women-1"
+    "createdAt": "2024-03-01T00:00:00Z",
+    "_id": "fb-prod-ts-1"
   },
   {
-    "id": "women-2",
-    "name": "High-Waist Training Tights",
-    "slug": "high-waist-training-tights",
-    "description": "Supportive high-waist tights with compression fit. Performance meets style.",
-    "price": 3499,
-    "compareAtPrice": 4499,
+    "id": "ts-2",
+    "name": "Full Hand Collared Polo T-Shirt",
+    "slug": "full-hand-collared-polo-tshirt",
+    "description": "Classic full sleeve piqué polo t-shirt with ribbed collar and signature branding.",
+    "price": 1799,
+    "compareAtPrice": 2199,
     "currency": "INR",
-    "gender": "women",
+    "gender": "men",
     "images": [
       {
-        "id": "img-women-2",
-        "url": "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=800&q=80",
-        "alt": "High-Waist Training Tights",
+        "id": "img-ts-2",
+        "url": "https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=800&q=80",
+        "alt": "Polo Tee",
         "position": 1
       }
     ],
     "variants": [
       {
-        "id": "vw2-1",
-        "size": "XS",
-        "color": "Black",
-        "sku": "HTT-BLK-XS",
-        "price": 3499,
-        "inStock": true,
-        "inventory": 12
-      },
-      {
-        "id": "vw2-2",
-        "size": "S",
-        "color": "Black",
-        "sku": "HTT-BLK-S",
-        "price": 3499,
-        "inStock": true,
-        "inventory": 18
-      },
-      {
-        "id": "vw2-3",
+        "id": "v-ts2-1",
         "size": "M",
-        "color": "Black",
-        "sku": "HTT-BLK-M",
-        "price": 3499,
+        "color": "Navy Blue",
+        "sku": "TS2-NV-M",
+        "price": 1799,
+        "inStock": true,
+        "inventory": 10
+      },
+      {
+        "id": "v-ts2-2",
+        "size": "L",
+        "color": "Navy Blue",
+        "sku": "TS2-NV-L",
+        "price": 1799,
         "inStock": true,
         "inventory": 15
       }
     ],
-    "category": "Womens Clothing",
-    "subcategory": "Tights",
+    "category": "T-Shirts",
+    "subcategory": "Polo T-Shirts",
     "tags": [
-      "tights",
-      "training",
-      "compression",
-      "activewear"
+      "t-shirts",
+      "polo",
+      "collared",
+      "smart casual"
     ],
     "badges": [
-      "SALE",
       "BESTSELLER"
     ],
     "inStock": true,
-    "inventory": 45,
-    "material": "Nylon/Elastane Blend, Compression Fit",
-    "careInstructions": "Machine wash cold, hang dry",
+    "inventory": 25,
+    "material": "100% Cotton Piqué",
+    "careInstructions": "Machine wash gentle",
     "sizeGuide": "standard",
-    "createdAt": "2024-01-25T00:00:00Z",
-    "_id": "fb-prod-women-2"
+    "createdAt": "2024-02-15T00:00:00Z",
+    "_id": "fb-prod-ts-2"
   },
   {
-    "id": "women-3",
-    "name": "Cloudspun Crewneck",
-    "slug": "cloudspun-crewneck",
-    "description": "Ultra-soft crewneck sweatshirt. Comfort redefined.",
-    "price": 4999,
-    "compareAtPrice": null,
+    "id": "ts-3",
+    "name": "Dry-Fit Performance Gym Tee",
+    "slug": "dry-fit-performance-gym-tee",
+    "description": "Lightweight moisture-wicking athletic gym t-shirt designed for maximum ventilation.",
+    "price": 1299,
+    "compareAtPrice": 1599,
     "currency": "INR",
-    "gender": "women",
+    "gender": "men",
     "images": [
       {
-        "id": "img-women-3",
-        "url": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&q=80",
-        "alt": "Cloudspun Crewneck",
+        "id": "img-ts-3",
+        "url": "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&q=80",
+        "alt": "Dry Fit Tee",
         "position": 1
       }
     ],
     "variants": [
       {
-        "id": "vw3-1",
-        "size": "S",
-        "color": "Lavender",
-        "sku": "CC-LAV-S",
-        "price": 4999,
+        "id": "v-ts3-1",
+        "size": "M",
+        "color": "Charcoal Gray",
+        "sku": "TS3-CG-M",
+        "price": 1299,
+        "inStock": true,
+        "inventory": 12
+      },
+      {
+        "id": "v-ts3-2",
+        "size": "L",
+        "color": "Charcoal Gray",
+        "sku": "TS3-CG-L",
+        "price": 1299,
         "inStock": true,
         "inventory": 14
-      },
-      {
-        "id": "vw3-2",
-        "size": "M",
-        "color": "Lavender",
-        "sku": "CC-LAV-M",
-        "price": 4999,
-        "inStock": true,
-        "inventory": 16
-      },
-      {
-        "id": "vw3-3",
-        "size": "L",
-        "color": "Lavender",
-        "sku": "CC-LAV-L",
-        "price": 4999,
-        "inStock": true,
-        "inventory": 10
       }
     ],
-    "category": "Womens Clothing",
-    "subcategory": "Sweatshirts",
+    "category": "T-Shirts",
+    "subcategory": "Dry Fit T-Shirts",
     "tags": [
-      "sweatshirt",
-      "cloudspun",
-      "comfort",
-      "casual"
+      "t-shirts",
+      "dry fit",
+      "gym",
+      "activewear"
     ],
     "badges": [
       "NEW"
     ],
     "inStock": true,
-    "inventory": 40,
-    "material": "Cloudspun Fabric, Cotton Blend",
-    "careInstructions": "Machine wash cold, tumble dry low",
-    "sizeGuide": "standard",
-    "createdAt": "2024-03-01T00:00:00Z",
-    "_id": "fb-prod-women-3"
-  },
-  {
-    "id": "women-4",
-    "name": "Studio Yoga Bra",
-    "slug": "studio-yoga-bra",
-    "description": "Medium-support sports bra for yoga and studio workouts. Breathable and comfortable.",
-    "price": 2299,
-    "compareAtPrice": 2999,
-    "currency": "INR",
-    "gender": "women",
-    "images": [
-      {
-        "id": "img-women-4",
-        "url": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800&q=80",
-        "alt": "Studio Yoga Bra",
-        "position": 1
-      }
-    ],
-    "variants": [
-      {
-        "id": "vw4-1",
-        "size": "XS",
-        "color": "Mint",
-        "sku": "SYB-MNT-XS",
-        "price": 2299,
-        "inStock": true,
-        "inventory": 10
-      },
-      {
-        "id": "vw4-2",
-        "size": "S",
-        "color": "Mint",
-        "sku": "SYB-MNT-S",
-        "price": 2299,
-        "inStock": true,
-        "inventory": 15
-      },
-      {
-        "id": "vw4-3",
-        "size": "M",
-        "color": "Mint",
-        "sku": "SYB-MNT-M",
-        "price": 2299,
-        "inStock": true,
-        "inventory": 12
-      }
-    ],
-    "category": "Womens Clothing",
-    "subcategory": "Sports Bras",
-    "tags": [
-      "sportsbra",
-      "yoga",
-      "studio",
-      "activewear"
-    ],
-    "badges": [
-      "SALE"
-    ],
-    "inStock": true,
-    "inventory": 37,
-    "material": "Recycled Polyester, Moisture-Wicking",
-    "careInstructions": "Machine wash cold, hang dry",
-    "sizeGuide": "intimates",
-    "createdAt": "2024-02-05T00:00:00Z",
-    "_id": "fb-prod-women-4"
-  },
-  {
-    "id": "women-5",
-    "name": "Essentials Cropped Tee",
-    "slug": "essentials-cropped-tee",
-    "description": "Relaxed fit cropped tee. Your new favorite basic.",
-    "price": 1799,
-    "compareAtPrice": null,
-    "currency": "INR",
-    "gender": "women",
-    "images": [
-      {
-        "id": "img-women-5",
-        "url": "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=800&q=80",
-        "alt": "Essentials Cropped Tee",
-        "position": 1
-      }
-    ],
-    "variants": [
-      {
-        "id": "vw5-1",
-        "size": "XS",
-        "color": "White",
-        "sku": "ECT-WHT-XS",
-        "price": 1799,
-        "inStock": true,
-        "inventory": 18
-      },
-      {
-        "id": "vw5-2",
-        "size": "S",
-        "color": "White",
-        "sku": "ECT-WHT-S",
-        "price": 1799,
-        "inStock": true,
-        "inventory": 22
-      },
-      {
-        "id": "vw5-3",
-        "size": "M",
-        "color": "White",
-        "sku": "ECT-WHT-M",
-        "price": 1799,
-        "inStock": true,
-        "inventory": 20
-      }
-    ],
-    "category": "Womens Clothing",
-    "subcategory": "T-Shirts",
-    "tags": [
-      "tshirt",
-      "cropped",
-      "essentials",
-      "casual"
-    ],
-    "badges": [
-      "BESTSELLER"
-    ],
-    "inStock": true,
-    "inventory": 60,
-    "material": "100% Cotton",
+    "inventory": 26,
+    "material": "Polyester Spandex Mesh Blend",
     "careInstructions": "Machine wash cold",
     "sizeGuide": "standard",
-    "createdAt": "2024-01-15T00:00:00Z",
-    "_id": "fb-prod-women-5"
+    "createdAt": "2024-02-20T00:00:00Z",
+    "_id": "fb-prod-ts-3"
   },
   {
-    "id": "kids-1",
-    "name": "Kids Suede Classic",
-    "slug": "kids-suede-classic",
-    "description": "Iconic Suede style for the next generation. Mini style, maximum cool.",
-    "price": 4999,
-    "compareAtPrice": null,
-    "currency": "INR",
-    "gender": "kids",
-    "images": [
-      {
-        "id": "img-kids-1",
-        "url": "https://images.unsplash.com/photo-1514989940723-e8e51635b782?w=800&q=80",
-        "alt": "Kids Suede Classic",
-        "position": 1
-      }
-    ],
-    "variants": [
-      {
-        "id": "vk1-1",
-        "size": "1",
-        "color": "Red",
-        "sku": "KSC-RED-1",
-        "price": 4999,
-        "inStock": true,
-        "inventory": 12
-      },
-      {
-        "id": "vk1-2",
-        "size": "2",
-        "color": "Red",
-        "sku": "KSC-RED-2",
-        "price": 4999,
-        "inStock": true,
-        "inventory": 15
-      },
-      {
-        "id": "vk1-3",
-        "size": "3",
-        "color": "Red",
-        "sku": "KSC-RED-3",
-        "price": 4999,
-        "inStock": true,
-        "inventory": 10
-      }
-    ],
-    "category": "Kids",
-    "subcategory": "Kids Footwear",
-    "tags": [
-      "kids",
-      "sneakers",
-      "suede",
-      "classic"
-    ],
-    "badges": [
-      "BESTSELLER"
-    ],
-    "inStock": true,
-    "inventory": 37,
-    "material": "Suede Upper, Rubber Sole",
-    "careInstructions": "Wipe clean",
-    "sizeGuide": "kids-footwear",
-    "createdAt": "2024-01-20T00:00:00Z",
-    "_id": "fb-prod-kids-1"
-  },
-  {
-    "id": "kids-2",
-    "name": "Kids Active Tee",
-    "slug": "kids-active-tee",
-    "description": "Comfortable cotton tee for active kids. Play all day.",
+    "id": "ts-4",
+    "name": "Regular Fit Crewneck Cotton Tee",
+    "slug": "regular-fit-crewneck-cotton-tee",
+    "description": "Essential everyday cotton t-shirt with soft hand feel and modern regular fit.",
     "price": 999,
     "compareAtPrice": 1299,
     "currency": "INR",
-    "gender": "kids",
+    "gender": "men",
     "images": [
       {
-        "id": "img-kids-2",
-        "url": "https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?w=800&q=80",
-        "alt": "Kids Active Tee",
+        "id": "img-ts-4",
+        "url": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&q=80",
+        "alt": "Regular Tee",
         "position": 1
       }
     ],
     "variants": [
       {
-        "id": "vk2-1",
-        "size": "4-5Y",
-        "color": "Blue",
-        "sku": "KAT-BLU-45",
+        "id": "v-ts4-1",
+        "size": "M",
+        "color": "White",
+        "sku": "TS4-W-M",
         "price": 999,
         "inStock": true,
         "inventory": 20
       },
       {
-        "id": "vk2-2",
-        "size": "6-7Y",
-        "color": "Blue",
-        "sku": "KAT-BLU-67",
+        "id": "v-ts4-2",
+        "size": "L",
+        "color": "White",
+        "sku": "TS4-W-L",
         "price": 999,
         "inStock": true,
         "inventory": 25
-      },
+      }
+    ],
+    "category": "T-Shirts",
+    "subcategory": "Regular Cotton T-Shirts",
+    "tags": [
+      "t-shirts",
+      "cotton",
+      "regular fit"
+    ],
+    "badges": [
+      "SALE"
+    ],
+    "inStock": true,
+    "inventory": 45,
+    "material": "100% Super Combed Cotton",
+    "careInstructions": "Machine wash cold",
+    "sizeGuide": "standard",
+    "createdAt": "2024-01-10T00:00:00Z",
+    "_id": "fb-prod-ts-4"
+  },
+  {
+    "id": "ts-5",
+    "name": "Full Sleeve Collar Smart Polo",
+    "slug": "full-sleeve-collar-smart-polo",
+    "description": "Full sleeve collared polo t-shirt crafted for work-from-home or casual outings.",
+    "price": 1899,
+    "compareAtPrice": null,
+    "currency": "INR",
+    "gender": "men",
+    "images": [
       {
-        "id": "vk2-3",
-        "size": "8-9Y",
-        "color": "Blue",
-        "sku": "KAT-BLU-89",
-        "price": 999,
+        "id": "img-ts-5",
+        "url": "https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=800&q=80",
+        "alt": "Full Sleeve Polo",
+        "position": 1
+      }
+    ],
+    "variants": [
+      {
+        "id": "v-ts5-1",
+        "size": "M",
+        "color": "Olive Green",
+        "sku": "TS5-OG-M",
+        "price": 1899,
+        "inStock": true,
+        "inventory": 15
+      }
+    ],
+    "category": "T-Shirts",
+    "subcategory": "Full Sleeve Collar T-Shirts",
+    "tags": [
+      "t-shirts",
+      "full sleeve",
+      "collar"
+    ],
+    "badges": [
+      "NEW"
+    ],
+    "inStock": true,
+    "inventory": 15,
+    "material": "95% Cotton 5% Elastane",
+    "careInstructions": "Machine wash",
+    "sizeGuide": "standard",
+    "createdAt": "2024-02-10T00:00:00Z",
+    "_id": "fb-prod-ts-5"
+  },
+  {
+    "id": "ts-6",
+    "name": "Athletic Gym Training Tee",
+    "slug": "athletic-gym-training-tee",
+    "description": "High elasticity training t-shirt built for intense workout sessions.",
+    "price": 1199,
+    "compareAtPrice": 1499,
+    "currency": "INR",
+    "gender": "men",
+    "images": [
+      {
+        "id": "img-ts-6",
+        "url": "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&q=80",
+        "alt": "Gym Tee",
+        "position": 1
+      }
+    ],
+    "variants": [
+      {
+        "id": "v-ts6-1",
+        "size": "L",
+        "color": "Electric Red",
+        "sku": "TS6-ER-L",
+        "price": 1199,
         "inStock": true,
         "inventory": 18
       }
     ],
-    "category": "Kids",
-    "subcategory": "Kids Clothing",
+    "category": "T-Shirts",
+    "subcategory": "Gym T-Shirts",
     "tags": [
-      "kids",
-      "tshirt",
-      "active",
+      "t-shirts",
+      "gym",
+      "training"
+    ],
+    "badges": [],
+    "inStock": true,
+    "inventory": 18,
+    "material": "Breathable Micro Polyester",
+    "careInstructions": "Machine wash",
+    "sizeGuide": "standard",
+    "createdAt": "2024-01-25T00:00:00Z",
+    "_id": "fb-prod-ts-6"
+  },
+  {
+    "id": "sh-1",
+    "name": "Floral Printed Casual Linen Shirt",
+    "slug": "floral-printed-casual-linen-shirt",
+    "description": "Breeze through summer in this relaxed fit floral printed linen casual shirt.",
+    "price": 1999,
+    "compareAtPrice": 2499,
+    "currency": "INR",
+    "gender": "men",
+    "images": [
+      {
+        "id": "img-sh-1",
+        "url": "https://images.unsplash.com/photo-1603252109303-2751441dd157?w=800&q=80",
+        "alt": "Floral Shirt",
+        "position": 1
+      }
+    ],
+    "variants": [
+      {
+        "id": "v-sh1-1",
+        "size": "M",
+        "color": "Floral Cream",
+        "sku": "SH1-FC-M",
+        "price": 1999,
+        "inStock": true,
+        "inventory": 14
+      },
+      {
+        "id": "v-sh1-2",
+        "size": "L",
+        "color": "Floral Cream",
+        "sku": "SH1-FC-L",
+        "price": 1999,
+        "inStock": true,
+        "inventory": 16
+      }
+    ],
+    "category": "Shirts",
+    "subcategory": "Floral Shirts",
+    "tags": [
+      "shirts",
+      "floral",
+      "linen",
+      "casual"
+    ],
+    "badges": [
+      "NEW",
+      "TRENDING"
+    ],
+    "inStock": true,
+    "inventory": 30,
+    "material": "100% Organic Linen",
+    "careInstructions": "Dry clean recommended",
+    "sizeGuide": "standard",
+    "createdAt": "2024-02-28T00:00:00Z",
+    "_id": "fb-prod-sh-1"
+  },
+  {
+    "id": "sh-2",
+    "name": "Vintage Washed Denim Shirt",
+    "slug": "vintage-washed-denim-shirt",
+    "description": "Rugged classic denim shirt with pearl snap buttons and twin chest pockets.",
+    "price": 2199,
+    "compareAtPrice": 2699,
+    "currency": "INR",
+    "gender": "men",
+    "images": [
+      {
+        "id": "img-sh-2",
+        "url": "https://images.unsplash.com/photo-1618886614638-80e3c103d31a?w=800&q=80",
+        "alt": "Denim Shirt",
+        "position": 1
+      }
+    ],
+    "variants": [
+      {
+        "id": "v-sh2-1",
+        "size": "M",
+        "color": "Indigo Blue",
+        "sku": "SH2-IB-M",
+        "price": 2199,
+        "inStock": true,
+        "inventory": 10
+      },
+      {
+        "id": "v-sh2-2",
+        "size": "L",
+        "color": "Indigo Blue",
+        "sku": "SH2-IB-L",
+        "price": 2199,
+        "inStock": true,
+        "inventory": 12
+      }
+    ],
+    "category": "Shirts",
+    "subcategory": "Denim Shirts",
+    "tags": [
+      "shirts",
+      "denim",
+      "vintage"
+    ],
+    "badges": [
+      "BESTSELLER"
+    ],
+    "inStock": true,
+    "inventory": 22,
+    "material": "100% Cotton Denim 8oz",
+    "careInstructions": "Machine wash cold with like colors",
+    "sizeGuide": "standard",
+    "createdAt": "2024-01-15T00:00:00Z",
+    "_id": "fb-prod-sh-2"
+  },
+  {
+    "id": "sh-3",
+    "name": "Back Printed Oversized Resort Shirt",
+    "slug": "back-printed-oversized-resort-shirt",
+    "description": "Statement street-wear resort shirt featuring an artistic back print illustration.",
+    "price": 2299,
+    "compareAtPrice": 2799,
+    "currency": "INR",
+    "gender": "men",
+    "images": [
+      {
+        "id": "img-sh-3",
+        "url": "https://images.unsplash.com/photo-1603252109303-2751441dd157?w=800&q=80",
+        "alt": "Back Print Shirt",
+        "position": 1
+      }
+    ],
+    "variants": [
+      {
+        "id": "v-sh3-1",
+        "size": "M",
+        "color": "Off White",
+        "sku": "SH3-OW-M",
+        "price": 2299,
+        "inStock": true,
+        "inventory": 8
+      },
+      {
+        "id": "v-sh3-2",
+        "size": "L",
+        "color": "Off White",
+        "sku": "SH3-OW-L",
+        "price": 2299,
+        "inStock": true,
+        "inventory": 10
+      }
+    ],
+    "category": "Shirts",
+    "subcategory": "Back Printed Shirts",
+    "tags": [
+      "shirts",
+      "back printed",
+      "resort",
+      "streetwear"
+    ],
+    "badges": [
+      "NEW"
+    ],
+    "inStock": true,
+    "inventory": 18,
+    "material": "Rayon Viscose Blend",
+    "careInstructions": "Cold hand wash",
+    "sizeGuide": "standard",
+    "createdAt": "2024-03-05T00:00:00Z",
+    "_id": "fb-prod-sh-3"
+  },
+  {
+    "id": "sh-4",
+    "name": "Classic Oxford Formal Cotton Shirt",
+    "slug": "classic-oxford-formal-cotton-shirt",
+    "description": "Sharp crisp formal oxford button-down shirt for corporate elegance.",
+    "price": 2499,
+    "compareAtPrice": null,
+    "currency": "INR",
+    "gender": "men",
+    "images": [
+      {
+        "id": "img-sh-4",
+        "url": "https://images.unsplash.com/photo-1603252109303-2751441dd157?w=800&q=80",
+        "alt": "Formal Shirt",
+        "position": 1
+      }
+    ],
+    "variants": [
+      {
+        "id": "v-sh4-1",
+        "size": "39",
+        "color": "Sky Blue",
+        "sku": "SH4-SB-39",
+        "price": 2499,
+        "inStock": true,
+        "inventory": 15
+      },
+      {
+        "id": "v-sh4-2",
+        "size": "40",
+        "color": "Sky Blue",
+        "sku": "SH4-SB-40",
+        "price": 2499,
+        "inStock": true,
+        "inventory": 18
+      }
+    ],
+    "category": "Shirts",
+    "subcategory": "Formal Shirts",
+    "tags": [
+      "shirts",
+      "formal",
+      "oxford",
+      "office"
+    ],
+    "badges": [],
+    "inStock": true,
+    "inventory": 33,
+    "material": "100% Giza Cotton",
+    "careInstructions": "Machine wash warm, iron hot",
+    "sizeGuide": "standard",
+    "createdAt": "2024-01-05T00:00:00Z",
+    "_id": "fb-prod-sh-4"
+  },
+  {
+    "id": "sh-5",
+    "name": "Designer Cuban Collar Patterned Shirt",
+    "slug": "designer-cuban-collar-patterned-shirt",
+    "description": "Sophisticated designer shirt with contrast piping and camp collar silhouette.",
+    "price": 2599,
+    "compareAtPrice": 2999,
+    "currency": "INR",
+    "gender": "men",
+    "images": [
+      {
+        "id": "img-sh-5",
+        "url": "https://images.unsplash.com/photo-1603252109303-2751441dd157?w=800&q=80",
+        "alt": "Designer Shirt",
+        "position": 1
+      }
+    ],
+    "variants": [
+      {
+        "id": "v-sh5-1",
+        "size": "M",
+        "color": "Terracotta",
+        "sku": "SH5-TC-M",
+        "price": 2599,
+        "inStock": true,
+        "inventory": 10
+      }
+    ],
+    "category": "Shirts",
+    "subcategory": "Designer Shirts",
+    "tags": [
+      "shirts",
+      "designer",
+      "cuban collar"
+    ],
+    "badges": [
+      "LIMITED"
+    ],
+    "inStock": true,
+    "inventory": 10,
+    "material": "Tencel Modal Blend",
+    "careInstructions": "Dry clean only",
+    "sizeGuide": "standard",
+    "createdAt": "2024-02-12T00:00:00Z",
+    "_id": "fb-prod-sh-5"
+  },
+  {
+    "id": "sh-6",
+    "name": "Daily Wear Cotton Casual Shirt",
+    "slug": "daily-wear-cotton-casual-shirt",
+    "description": "Breathable light cotton casual shirt perfect for everyday outings.",
+    "price": 1599,
+    "compareAtPrice": 1899,
+    "currency": "INR",
+    "gender": "men",
+    "images": [
+      {
+        "id": "img-sh-6",
+        "url": "https://images.unsplash.com/photo-1603252109303-2751441dd157?w=800&q=80",
+        "alt": "Daily Shirt",
+        "position": 1
+      }
+    ],
+    "variants": [
+      {
+        "id": "v-sh6-1",
+        "size": "L",
+        "color": "Sand Beige",
+        "sku": "SH6-SB-L",
+        "price": 1599,
+        "inStock": true,
+        "inventory": 20
+      }
+    ],
+    "category": "Shirts",
+    "subcategory": "Daily Wear Shirts",
+    "tags": [
+      "shirts",
+      "daily wear",
       "casual"
     ],
     "badges": [
       "SALE"
     ],
     "inStock": true,
-    "inventory": 63,
+    "inventory": 20,
     "material": "100% Cotton",
-    "careInstructions": "Machine wash cold",
-    "sizeGuide": "kids",
-    "createdAt": "2024-02-10T00:00:00Z",
-    "_id": "fb-prod-kids-2"
+    "careInstructions": "Machine wash",
+    "sizeGuide": "standard",
+    "createdAt": "2024-01-20T00:00:00Z",
+    "_id": "fb-prod-sh-6"
   },
   {
-    "id": "kids-3",
-    "name": "Kids Training Shorts",
-    "slug": "kids-training-shorts",
-    "description": "Lightweight sports shorts for young athletes. Move freely, play hard.",
-    "price": 1299,
-    "compareAtPrice": null,
+    "id": "hd-1",
+    "name": "Classic Zipper Fleece Hoodie",
+    "slug": "classic-zipper-fleece-hoodie",
+    "description": "Cozy heavyweight 350 GSM fleece hoodie with full metal zipper and split pouch pocket.",
+    "price": 2499,
+    "compareAtPrice": 2999,
     "currency": "INR",
-    "gender": "kids",
+    "gender": "men",
     "images": [
       {
-        "id": "img-kids-3",
-        "url": "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=800&q=80",
-        "alt": "Kids Training Shorts",
+        "id": "img-hd-1",
+        "url": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&q=80",
+        "alt": "Zipper Hoodie",
         "position": 1
       }
     ],
     "variants": [
       {
-        "id": "vk3-1",
-        "size": "4-5Y",
-        "color": "Black",
-        "sku": "KTS-BLK-45",
-        "price": 1299,
+        "id": "v-hd1-1",
+        "size": "M",
+        "color": "Heather Gray",
+        "sku": "HD1-HG-M",
+        "price": 2499,
         "inStock": true,
         "inventory": 15
       },
       {
-        "id": "vk3-2",
-        "size": "6-7Y",
-        "color": "Black",
-        "sku": "KTS-BLK-67",
-        "price": 1299,
+        "id": "v-hd1-2",
+        "size": "L",
+        "color": "Heather Gray",
+        "sku": "HD1-HG-L",
+        "price": 2499,
         "inStock": true,
         "inventory": 18
-      },
-      {
-        "id": "vk3-3",
-        "size": "8-9Y",
-        "color": "Black",
-        "sku": "KTS-BLK-89",
-        "price": 1299,
-        "inStock": true,
-        "inventory": 14
       }
     ],
-    "category": "Kids",
-    "subcategory": "Kids Clothing",
+    "category": "Hoodies",
+    "subcategory": "Zipper Hoodies",
     "tags": [
-      "kids",
-      "shorts",
-      "training",
-      "sports"
+      "hoodies",
+      "zipper",
+      "fleece",
+      "winterwear"
+    ],
+    "badges": [
+      "BESTSELLER"
+    ],
+    "inStock": true,
+    "inventory": 33,
+    "material": "80% Cotton 20% Polyester Fleece",
+    "careInstructions": "Machine wash cold, tumble dry low",
+    "sizeGuide": "standard",
+    "createdAt": "2024-02-01T00:00:00Z",
+    "_id": "fb-prod-hd-1"
+  },
+  {
+    "id": "hd-2",
+    "name": "Oversized Heavyweight Pullover Hoodie",
+    "slug": "oversized-heavyweight-pullover-hoodie",
+    "description": "Streetwear oversized hoodie with double-lined hood and kangaroo pouch.",
+    "price": 2299,
+    "compareAtPrice": 2799,
+    "currency": "INR",
+    "gender": "men",
+    "images": [
+      {
+        "id": "img-hd-2",
+        "url": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&q=80",
+        "alt": "Pullover Hoodie",
+        "position": 1
+      }
+    ],
+    "variants": [
+      {
+        "id": "v-hd2-1",
+        "size": "L",
+        "color": "Jet Black",
+        "sku": "HD2-JB-L",
+        "price": 2299,
+        "inStock": true,
+        "inventory": 20
+      }
+    ],
+    "category": "Hoodies",
+    "subcategory": "Hoodies",
+    "tags": [
+      "hoodies",
+      "pullover",
+      "oversized"
     ],
     "badges": [
       "NEW"
     ],
     "inStock": true,
-    "inventory": 47,
-    "material": "Polyester, dryCELL Technology",
+    "inventory": 20,
+    "material": "100% French Terry Cotton",
     "careInstructions": "Machine wash cold",
-    "sizeGuide": "kids",
-    "createdAt": "2024-02-25T00:00:00Z",
-    "_id": "fb-prod-kids-3"
+    "sizeGuide": "standard",
+    "createdAt": "2024-02-18T00:00:00Z",
+    "_id": "fb-prod-hd-2"
   },
   {
-    "id": "kids-4",
-    "name": "Kids Hoodie",
-    "slug": "kids-hoodie",
-    "description": "Cozy hoodie for everyday comfort. Soft, warm, and stylish.",
-    "price": 2499,
-    "compareAtPrice": 2999,
+    "id": "bw-1",
+    "name": "Relaxed Fit Cargo Joggers",
+    "slug": "relaxed-fit-cargo-joggers",
+    "description": "Multi-pocket utility cargo pants with elasticated jogger cuffs and drawstrings.",
+    "price": 2399,
+    "compareAtPrice": 2899,
     "currency": "INR",
-    "gender": "kids",
+    "gender": "men",
     "images": [
       {
-        "id": "img-kids-4",
-        "url": "https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?w=800&q=80",
-        "alt": "Kids Hoodie",
+        "id": "img-bw-1",
+        "url": "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=800&q=80",
+        "alt": "Cargo Joggers",
         "position": 1
       }
     ],
     "variants": [
       {
-        "id": "vk4-1",
-        "size": "4-5Y",
-        "color": "Gray",
-        "sku": "KH-GRY-45",
-        "price": 2499,
+        "id": "v-bw1-1",
+        "size": "30",
+        "color": "Tactical Olive",
+        "sku": "BW1-TO-30",
+        "price": 2399,
         "inStock": true,
         "inventory": 12
       },
       {
-        "id": "vk4-2",
-        "size": "6-7Y",
-        "color": "Gray",
-        "sku": "KH-GRY-67",
-        "price": 2499,
+        "id": "v-bw1-2",
+        "size": "32",
+        "color": "Tactical Olive",
+        "sku": "BW1-TO-32",
+        "price": 2399,
         "inStock": true,
-        "inventory": 15
-      },
-      {
-        "id": "vk4-3",
-        "size": "8-9Y",
-        "color": "Gray",
-        "sku": "KH-GRY-89",
-        "price": 2499,
-        "inStock": true,
-        "inventory": 10
+        "inventory": 16
       }
     ],
-    "category": "Kids",
-    "subcategory": "Kids Clothing",
+    "category": "Bottom Wear",
+    "subcategory": "Cargo Pants",
     "tags": [
-      "kids",
-      "hoodie",
-      "casual",
-      "comfort"
+      "bottom wear",
+      "cargos",
+      "joggers",
+      "utility"
     ],
     "badges": [
-      "SALE",
-      "BESTSELLER"
+      "BESTSELLER",
+      "TRENDING"
     ],
     "inStock": true,
-    "inventory": 37,
-    "material": "Cotton/Polyester Blend",
-    "careInstructions": "Machine wash cold, tumble dry low",
-    "sizeGuide": "kids",
-    "createdAt": "2024-01-30T00:00:00Z",
-    "_id": "fb-prod-kids-4"
+    "inventory": 28,
+    "material": "Cotton Twill Stretch",
+    "careInstructions": "Machine wash inside out",
+    "sizeGuide": "standard",
+    "createdAt": "2024-02-10T00:00:00Z",
+    "_id": "fb-prod-bw-1"
   },
   {
-    "id": "kids-5",
-    "name": "Kids Backpack",
-    "slug": "kids-backpack",
-    "description": "Durable backpack for school and play. Spacious and comfortable.",
-    "price": 1999,
-    "compareAtPrice": null,
+    "id": "bw-2",
+    "name": "Baggy Fit Vintage Denim Jeans",
+    "slug": "baggy-fit-vintage-denim-jeans",
+    "description": "90s retro wide leg baggy fit denim jeans in light blue vintage wash.",
+    "price": 2799,
+    "compareAtPrice": 3299,
     "currency": "INR",
-    "gender": "kids",
+    "gender": "men",
     "images": [
       {
-        "id": "img-kids-5",
-        "url": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&q=80",
-        "alt": "Kids Backpack",
+        "id": "img-bw-2",
+        "url": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=800&q=80",
+        "alt": "Baggy Jeans",
         "position": 1
       }
     ],
     "variants": [
       {
-        "id": "vk5-1",
-        "size": "One Size",
-        "color": "Navy/Red",
-        "sku": "KB-NR-OS",
-        "price": 1999,
+        "id": "v-bw2-1",
+        "size": "32",
+        "color": "Light Vintage Wash",
+        "sku": "BW2-LV-32",
+        "price": 2799,
+        "inStock": true,
+        "inventory": 14
+      },
+      {
+        "id": "v-bw2-2",
+        "size": "34",
+        "color": "Light Vintage Wash",
+        "sku": "BW2-LV-34",
+        "price": 2799,
+        "inStock": true,
+        "inventory": 10
+      }
+    ],
+    "category": "Bottom Wear",
+    "subcategory": "Baggy Fit Jeans",
+    "tags": [
+      "bottom wear",
+      "jeans",
+      "baggy fit",
+      "denim"
+    ],
+    "badges": [
+      "NEW"
+    ],
+    "inStock": true,
+    "inventory": 24,
+    "material": "100% Rigid Heavyweight Cotton Denim",
+    "careInstructions": "Machine wash cold with similar colors",
+    "sizeGuide": "standard",
+    "createdAt": "2024-03-02T00:00:00Z",
+    "_id": "fb-prod-bw-2"
+  },
+  {
+    "id": "bw-3",
+    "name": "Linen Blend Drawstring Trousers",
+    "slug": "linen-blend-drawstring-trousers",
+    "description": "Airy linen trousers with elastic waistband and internal drawstring.",
+    "price": 2199,
+    "compareAtPrice": null,
+    "currency": "INR",
+    "gender": "men",
+    "images": [
+      {
+        "id": "img-bw-3",
+        "url": "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=800&q=80",
+        "alt": "Linen Trousers",
+        "position": 1
+      }
+    ],
+    "variants": [
+      {
+        "id": "v-bw3-1",
+        "size": "32",
+        "color": "Natural Linen",
+        "sku": "BW3-NL-32",
+        "price": 2199,
+        "inStock": true,
+        "inventory": 15
+      }
+    ],
+    "category": "Bottom Wear",
+    "subcategory": "Linen Pants",
+    "tags": [
+      "bottom wear",
+      "linen",
+      "trousers"
+    ],
+    "badges": [],
+    "inStock": true,
+    "inventory": 15,
+    "material": "Linen Cotton Blend",
+    "careInstructions": "Cold gentle wash",
+    "sizeGuide": "standard",
+    "createdAt": "2024-01-28T00:00:00Z",
+    "_id": "fb-prod-bw-3"
+  },
+  {
+    "id": "bw-4",
+    "name": "Pleated Slim Formal Trousers",
+    "slug": "pleated-slim-formal-trousers",
+    "description": "Sleek formal trousers with crisp front crease and button flap closure.",
+    "price": 2599,
+    "compareAtPrice": 2999,
+    "currency": "INR",
+    "gender": "men",
+    "images": [
+      {
+        "id": "img-bw-4",
+        "url": "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=800&q=80",
+        "alt": "Formal Pants",
+        "position": 1
+      }
+    ],
+    "variants": [
+      {
+        "id": "v-bw4-1",
+        "size": "32",
+        "color": "Charcoal Black",
+        "sku": "BW4-CB-32",
+        "price": 2599,
+        "inStock": true,
+        "inventory": 18
+      }
+    ],
+    "category": "Bottom Wear",
+    "subcategory": "Formal Pants",
+    "tags": [
+      "bottom wear",
+      "formal",
+      "trousers"
+    ],
+    "badges": [],
+    "inStock": true,
+    "inventory": 18,
+    "material": "Poly-Viscose Stretch",
+    "careInstructions": "Dry clean recommended",
+    "sizeGuide": "standard",
+    "createdAt": "2024-02-05T00:00:00Z",
+    "_id": "fb-prod-bw-4"
+  },
+  {
+    "id": "st-1",
+    "name": "Casual Cotton Chino Shorts",
+    "slug": "casual-cotton-chino-shorts",
+    "description": "Comfortable knee-length cotton chino shorts with side slash pockets.",
+    "price": 1299,
+    "compareAtPrice": 1599,
+    "currency": "INR",
+    "gender": "men",
+    "images": [
+      {
+        "id": "img-st-1",
+        "url": "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=800&q=80",
+        "alt": "Casual Shorts",
+        "position": 1
+      }
+    ],
+    "variants": [
+      {
+        "id": "v-st1-1",
+        "size": "30",
+        "color": "Khaki",
+        "sku": "ST1-KH-30",
+        "price": 1299,
+        "inStock": true,
+        "inventory": 15
+      },
+      {
+        "id": "v-st1-2",
+        "size": "32",
+        "color": "Khaki",
+        "sku": "ST1-KH-32",
+        "price": 1299,
+        "inStock": true,
+        "inventory": 18
+      }
+    ],
+    "category": "Shorts",
+    "subcategory": "Casual Shorts",
+    "tags": [
+      "shorts",
+      "casual",
+      "chino"
+    ],
+    "badges": [
+      "SALE"
+    ],
+    "inStock": true,
+    "inventory": 33,
+    "material": "98% Cotton 2% Elastane",
+    "careInstructions": "Machine wash cold",
+    "sizeGuide": "standard",
+    "createdAt": "2024-02-14T00:00:00Z",
+    "_id": "fb-prod-st-1"
+  },
+  {
+    "id": "st-2",
+    "name": "Dry-Fit Athletic Training Shorts",
+    "slug": "dry-fit-athletic-training-shorts",
+    "description": "Breathable dry-fit shorts featuring zipped pockets and 4-way stretch fabric.",
+    "price": 1399,
+    "compareAtPrice": 1699,
+    "currency": "INR",
+    "gender": "men",
+    "images": [
+      {
+        "id": "img-st-2",
+        "url": "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=800&q=80",
+        "alt": "Dry Fit Shorts",
+        "position": 1
+      }
+    ],
+    "variants": [
+      {
+        "id": "v-st2-1",
+        "size": "M",
+        "color": "Slate Gray",
+        "sku": "ST2-SG-M",
+        "price": 1399,
+        "inStock": true,
+        "inventory": 20
+      }
+    ],
+    "category": "Shorts",
+    "subcategory": "Dry Fit Shorts",
+    "tags": [
+      "shorts",
+      "dry fit",
+      "gym",
+      "training"
+    ],
+    "badges": [
+      "NEW"
+    ],
+    "inStock": true,
+    "inventory": 20,
+    "material": "Quick-Dry Polyester",
+    "careInstructions": "Machine wash",
+    "sizeGuide": "standard",
+    "createdAt": "2024-02-25T00:00:00Z",
+    "_id": "fb-prod-st-2"
+  },
+  {
+    "id": "fw-1",
+    "name": "Velocity NITRO 4 Running Shoes",
+    "slug": "velocity-nitro-4-running-shoes",
+    "description": "Explosive responsiveness and cushioning powered by NITRO foam technology.",
+    "price": 12999,
+    "compareAtPrice": 15999,
+    "currency": "INR",
+    "gender": "unisex",
+    "images": [
+      {
+        "id": "img-fw-1",
+        "url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&q=80",
+        "alt": "Velocity NITRO 4",
+        "position": 1
+      }
+    ],
+    "variants": [
+      {
+        "id": "v-fw1-1",
+        "size": "8",
+        "color": "Electric Blue",
+        "sku": "FW1-EB-8",
+        "price": 12999,
+        "inStock": true,
+        "inventory": 20
+      },
+      {
+        "id": "v-fw1-2",
+        "size": "9",
+        "color": "Electric Blue",
+        "sku": "FW1-EB-9",
+        "price": 12999,
+        "inStock": true,
+        "inventory": 15
+      }
+    ],
+    "category": "Footwear",
+    "subcategory": "Shoes",
+    "tags": [
+      "footwear",
+      "shoes",
+      "running",
+      "nitro"
+    ],
+    "badges": [
+      "BESTSELLER"
+    ],
+    "inStock": true,
+    "inventory": 35,
+    "material": "NITRO Foam & Engineered Mesh",
+    "careInstructions": "Wipe with damp cloth",
+    "sizeGuide": "footwear",
+    "createdAt": "2024-03-01T00:00:00Z",
+    "_id": "fb-prod-fw-1"
+  },
+  {
+    "id": "fw-2",
+    "name": "Speedcat OG Classic Sneakers",
+    "slug": "speedcat-og-classic-sneakers",
+    "description": "Iconic low-profile motorsport sneaker crafted in rich black suede.",
+    "price": 8999,
+    "compareAtPrice": null,
+    "currency": "INR",
+    "gender": "unisex",
+    "images": [
+      {
+        "id": "img-fw-2",
+        "url": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=800&q=80",
+        "alt": "Speedcat OG",
+        "position": 1
+      }
+    ],
+    "variants": [
+      {
+        "id": "v-fw2-1",
+        "size": "8",
+        "color": "Black/White",
+        "sku": "FW2-BW-8",
+        "price": 8999,
+        "inStock": true,
+        "inventory": 15
+      }
+    ],
+    "category": "Footwear",
+    "subcategory": "Shoes",
+    "tags": [
+      "footwear",
+      "shoes",
+      "sneakers",
+      "speedcat"
+    ],
+    "badges": [
+      "TRENDING"
+    ],
+    "inStock": true,
+    "inventory": 15,
+    "material": "Suede & Rubber",
+    "careInstructions": "Clean with suede brush",
+    "sizeGuide": "footwear",
+    "createdAt": "2024-01-10T00:00:00Z",
+    "_id": "fb-prod-fw-2"
+  },
+  {
+    "id": "fw-3",
+    "name": "Classic Ergonomic Comfort Crocs",
+    "slug": "classic-ergonomic-comfort-crocs",
+    "description": "Ultra-lightweight ventilation clogs with plush cushioned sole for all-day comfort.",
+    "price": 3499,
+    "compareAtPrice": 3999,
+    "currency": "INR",
+    "gender": "unisex",
+    "images": [
+      {
+        "id": "img-fw-3",
+        "url": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800&q=80",
+        "alt": "Comfort Crocs",
+        "position": 1
+      }
+    ],
+    "variants": [
+      {
+        "id": "v-fw3-1",
+        "size": "8",
+        "color": "Charcoal Black",
+        "sku": "FW3-CB-8",
+        "price": 3499,
         "inStock": true,
         "inventory": 25
       }
     ],
-    "category": "Kids",
-    "subcategory": "Kids Accessories",
+    "category": "Footwear",
+    "subcategory": "Crocs",
     "tags": [
-      "kids",
-      "backpack",
-      "school",
-      "accessories"
+      "footwear",
+      "crocs",
+      "clogs",
+      "comfort"
     ],
     "badges": [
       "NEW"
     ],
     "inStock": true,
     "inventory": 25,
-    "material": "Polyester, Padded Straps",
-    "careInstructions": "Spot clean only",
-    "sizeGuide": "accessories",
-    "createdAt": "2024-03-05T00:00:00Z",
-    "_id": "fb-prod-kids-5"
+    "material": "Croslite Foam Matrix",
+    "careInstructions": "Rinse with water and soap",
+    "sizeGuide": "footwear",
+    "createdAt": "2024-02-20T00:00:00Z",
+    "_id": "fb-prod-fw-3"
   },
   {
-    "id": "acc-1",
-    "name": "Evercat Backpack",
-    "slug": "evercat-backpack",
-    "description": "Durable everyday backpack with laptop compartment. Your daily essential.",
+    "id": "wm-1",
+    "name": "Floral Ruffled Tiered Midi Dress",
+    "slug": "floral-ruffled-tiered-midi-dress",
+    "description": "Elegantly flowing floral ruffled midi dress crafted from breathable lightweight viscose fabric.",
     "price": 2999,
-    "compareAtPrice": null,
+    "compareAtPrice": 3499,
     "currency": "INR",
-    "gender": "unisex",
+    "gender": "women",
     "images": [
       {
-        "id": "img-acc-1",
-        "url": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&q=80",
-        "alt": "Evercat Backpack",
+        "id": "img-wm-1",
+        "url": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=800&q=80",
+        "alt": "Floral Dress",
         "position": 1
       }
     ],
     "variants": [
       {
-        "id": "va1-1",
-        "size": "One Size",
-        "color": "Black",
-        "sku": "EB-BLK-OS",
+        "id": "v-wm1-1",
+        "size": "S",
+        "color": "Botanical Print",
+        "sku": "WM1-BP-S",
         "price": 2999,
         "inStock": true,
-        "inventory": 30
+        "inventory": 12
+      },
+      {
+        "id": "v-wm1-2",
+        "size": "M",
+        "color": "Botanical Print",
+        "sku": "WM1-BP-M",
+        "price": 2999,
+        "inStock": true,
+        "inventory": 15
       }
     ],
-    "category": "Accessories",
-    "subcategory": "Bags",
+    "category": "Women",
+    "subcategory": "Women Clothing",
     "tags": [
-      "backpack",
-      "accessories",
-      "everyday",
-      "laptop"
+      "women",
+      "dresses",
+      "floral",
+      "clothing"
+    ],
+    "badges": [
+      "NEW",
+      "BESTSELLER"
+    ],
+    "inStock": true,
+    "inventory": 27,
+    "material": "100% Lightweight Viscose",
+    "careInstructions": "Hand wash cold",
+    "sizeGuide": "standard",
+    "createdAt": "2024-02-15T00:00:00Z",
+    "_id": "fb-prod-wm-1"
+  },
+  {
+    "id": "wm-2",
+    "name": "High-Waist Studio Workout Tights",
+    "slug": "high-waist-studio-workout-tights",
+    "description": "Squat-proof seamless high waist leggings engineered for studio workouts and yoga.",
+    "price": 1999,
+    "compareAtPrice": 2499,
+    "currency": "INR",
+    "gender": "women",
+    "images": [
+      {
+        "id": "img-wm-2",
+        "url": "https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=800&q=80",
+        "alt": "Studio Tights",
+        "position": 1
+      }
+    ],
+    "variants": [
+      {
+        "id": "v-wm2-1",
+        "size": "M",
+        "color": "Plum Purple",
+        "sku": "WM2-PP-M",
+        "price": 1999,
+        "inStock": true,
+        "inventory": 18
+      }
+    ],
+    "category": "Women",
+    "subcategory": "Women Clothing",
+    "tags": [
+      "women",
+      "leggings",
+      "activewear"
+    ],
+    "badges": [
+      "TRENDING"
+    ],
+    "inStock": true,
+    "inventory": 18,
+    "material": "Nylon Spandex Compression",
+    "careInstructions": "Machine wash cold",
+    "sizeGuide": "standard",
+    "createdAt": "2024-01-20T00:00:00Z",
+    "_id": "fb-prod-wm-2"
+  },
+  {
+    "id": "wm-3",
+    "name": "Women Lightweight Cushion Running Shoes",
+    "slug": "women-lightweight-cushion-running-shoes",
+    "description": "Engineered specifically for women runners with ergonomic foot arch support.",
+    "price": 6999,
+    "compareAtPrice": 8499,
+    "currency": "INR",
+    "gender": "women",
+    "images": [
+      {
+        "id": "img-wm-3",
+        "url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&q=80",
+        "alt": "Women Running Shoes",
+        "position": 1
+      }
+    ],
+    "variants": [
+      {
+        "id": "v-wm3-1",
+        "size": "6",
+        "color": "Rose Gold / White",
+        "sku": "WM3-RW-6",
+        "price": 6999,
+        "inStock": true,
+        "inventory": 14
+      },
+      {
+        "id": "v-wm3-2",
+        "size": "7",
+        "color": "Rose Gold / White",
+        "sku": "WM3-RW-7",
+        "price": 6999,
+        "inStock": true,
+        "inventory": 16
+      }
+    ],
+    "category": "Women",
+    "subcategory": "Women Footwear",
+    "tags": [
+      "women",
+      "footwear",
+      "running",
+      "shoes"
     ],
     "badges": [
       "BESTSELLER"
     ],
     "inStock": true,
     "inventory": 30,
-    "material": "Polyester, Padded Laptop Sleeve",
-    "careInstructions": "Spot clean only",
-    "sizeGuide": "accessories",
-    "createdAt": "2024-01-10T00:00:00Z",
-    "_id": "fb-prod-acc-1"
+    "material": "NITRO Foam & Breathable Mesh",
+    "careInstructions": "Wipe clean",
+    "sizeGuide": "footwear",
+    "createdAt": "2024-02-10T00:00:00Z",
+    "_id": "fb-prod-wm-3"
   },
   {
-    "id": "acc-2",
-    "name": "Performance Cap",
-    "slug": "performance-cap",
-    "description": "Moisture-wicking cap with adjustable fit. Stay cool and protected.",
-    "price": 1299,
-    "compareAtPrice": 1599,
-    "currency": "INR",
-    "gender": "unisex",
-    "images": [
-      {
-        "id": "img-acc-2",
-        "url": "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=800&q=80",
-        "alt": "Performance Cap",
-        "position": 1
-      }
-    ],
-    "variants": [
-      {
-        "id": "va2-1",
-        "size": "One Size",
-        "color": "Black",
-        "sku": "PC-BLK-OS",
-        "price": 1299,
-        "inStock": true,
-        "inventory": 40
-      }
-    ],
-    "category": "Accessories",
-    "subcategory": "Caps",
-    "tags": [
-      "cap",
-      "accessories",
-      "performance",
-      "sports"
-    ],
-    "badges": [
-      "SALE"
-    ],
-    "inStock": true,
-    "inventory": 40,
-    "material": "Polyester, Moisture-Wicking",
-    "careInstructions": "Hand wash, air dry",
-    "sizeGuide": "accessories",
-    "createdAt": "2024-02-01T00:00:00Z",
-    "_id": "fb-prod-acc-2"
-  },
-  {
-    "id": "acc-3",
-    "name": "Training Gym Bag",
-    "slug": "training-gym-bag",
-    "description": "Spacious gym bag with multiple compartments. Organize your workout gear.",
+    "id": "kd-1",
+    "name": "Kids Suede Classic Cushioned Sneakers",
+    "slug": "kids-suede-classic-cushioned-sneakers",
+    "description": "The classic Suede resized for kids with soft cushion insoles and easy hook-and-loop straps.",
     "price": 3499,
-    "compareAtPrice": null,
+    "compareAtPrice": 3999,
     "currency": "INR",
-    "gender": "unisex",
+    "gender": "kids",
     "images": [
       {
-        "id": "img-acc-3",
-        "url": "https://images.unsplash.com/photo-1547949003-9792a18a2601?w=800&q=80",
-        "alt": "Training Gym Bag",
+        "id": "img-kd-1",
+        "url": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=800&q=80",
+        "alt": "Kids Sneakers",
         "position": 1
       }
     ],
     "variants": [
       {
-        "id": "va3-1",
-        "size": "One Size",
-        "color": "Gray",
-        "sku": "TGB-GRY-OS",
+        "id": "v-kd1-1",
+        "size": "12K",
+        "color": "Classic Red",
+        "sku": "KD1-CR-12",
         "price": 3499,
         "inStock": true,
-        "inventory": 25
-      }
-    ],
-    "category": "Accessories",
-    "subcategory": "Bags",
-    "tags": [
-      "gymbag",
-      "accessories",
-      "training",
-      "sports"
-    ],
-    "badges": [
-      "NEW"
-    ],
-    "inStock": true,
-    "inventory": 25,
-    "material": "Durable Polyester, Water-Resistant",
-    "careInstructions": "Wipe clean",
-    "sizeGuide": "accessories",
-    "createdAt": "2024-02-20T00:00:00Z",
-    "_id": "fb-prod-acc-3"
-  },
-  {
-    "id": "acc-4",
-    "name": "Sport Socks 3-Pack",
-    "slug": "sport-socks-3-pack",
-    "description": "Performance socks with cushioned sole. Comfort for every step.",
-    "price": 999,
-    "compareAtPrice": null,
-    "currency": "INR",
-    "gender": "unisex",
-    "images": [
-      {
-        "id": "img-acc-4",
-        "url": "https://images.unsplash.com/photo-1586350977771-b3b0abd50c82?w=800&q=80",
-        "alt": "Sport Socks 3-Pack",
-        "position": 1
-      }
-    ],
-    "variants": [
-      {
-        "id": "va4-1",
-        "size": "M",
-        "color": "White",
-        "sku": "SS3-WHT-M",
-        "price": 999,
-        "inStock": true,
-        "inventory": 50
+        "inventory": 15
       },
       {
-        "id": "va4-2",
-        "size": "L",
-        "color": "White",
-        "sku": "SS3-WHT-L",
-        "price": 999,
+        "id": "v-kd1-2",
+        "size": "1K",
+        "color": "Classic Red",
+        "sku": "KD1-CR-1",
+        "price": 3499,
         "inStock": true,
-        "inventory": 45
+        "inventory": 20
       }
     ],
-    "category": "Accessories",
-    "subcategory": "Socks",
+    "category": "Kids",
+    "subcategory": "Kids Footwear",
     "tags": [
-      "socks",
-      "accessories",
-      "sports",
-      "performance"
+      "kids",
+      "footwear",
+      "sneakers"
     ],
     "badges": [
       "BESTSELLER"
     ],
     "inStock": true,
-    "inventory": 95,
-    "material": "Cotton/Polyester Blend",
-    "careInstructions": "Machine wash cold",
-    "sizeGuide": "accessories",
+    "inventory": 35,
+    "material": "Soft Suede Upper, Non-Marking Rubber",
+    "careInstructions": "Brush clean",
+    "sizeGuide": "kids",
     "createdAt": "2024-01-15T00:00:00Z",
-    "_id": "fb-prod-acc-4"
+    "_id": "fb-prod-kd-1"
   },
   {
-    "id": "acc-5",
-    "name": "Water Bottle 750ml",
-    "slug": "water-bottle-750ml",
-    "description": "BPA-free sports water bottle. Stay hydrated in style.",
+    "id": "kd-2",
+    "name": "Kids Cotton Graphic Active Tee",
+    "slug": "kids-cotton-graphic-active-tee",
+    "description": "Fun graphic printed cotton t-shirt built for active play and all-day comfort.",
     "price": 799,
     "compareAtPrice": 999,
     "currency": "INR",
-    "gender": "unisex",
+    "gender": "kids",
     "images": [
       {
-        "id": "img-acc-5",
-        "url": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=800&q=80",
-        "alt": "Water Bottle 750ml",
+        "id": "img-kd-2",
+        "url": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&q=80",
+        "alt": "Kids Graphic Tee",
         "position": 1
       }
     ],
     "variants": [
       {
-        "id": "va5-1",
-        "size": "750ml",
-        "color": "Black",
-        "sku": "WB-BLK-750",
+        "id": "v-kd2-1",
+        "size": "7-8Y",
+        "color": "Bright Blue",
+        "sku": "KD2-BB-7",
         "price": 799,
         "inStock": true,
-        "inventory": 60
+        "inventory": 18
       }
     ],
-    "category": "Accessories",
-    "subcategory": "Bottles",
+    "category": "Kids",
+    "subcategory": "Kids Clothing",
     "tags": [
-      "bottle",
-      "accessories",
-      "hydration",
-      "sports"
+      "kids",
+      "clothing",
+      "t-shirt"
+    ],
+    "badges": [
+      "NEW"
+    ],
+    "inStock": true,
+    "inventory": 18,
+    "material": "100% Organic Soft Cotton",
+    "careInstructions": "Machine wash cold",
+    "sizeGuide": "kids",
+    "createdAt": "2024-02-05T00:00:00Z",
+    "_id": "fb-prod-kd-2"
+  },
+  {
+    "id": "kd-3",
+    "name": "Kids Fleece Pullover Winter Hoodie",
+    "slug": "kids-fleece-pullover-winter-hoodie",
+    "description": "Warm and cozy fleece hoodie with front kangaroo pocket for kids.",
+    "price": 1499,
+    "compareAtPrice": 1799,
+    "currency": "INR",
+    "gender": "kids",
+    "images": [
+      {
+        "id": "img-kd-3",
+        "url": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&q=80",
+        "alt": "Kids Hoodie",
+        "position": 1
+      }
+    ],
+    "variants": [
+      {
+        "id": "v-kd3-1",
+        "size": "9-10Y",
+        "color": "Sunny Yellow",
+        "sku": "KD3-SY-9",
+        "price": 1499,
+        "inStock": true,
+        "inventory": 12
+      }
+    ],
+    "category": "Kids",
+    "subcategory": "Kids Clothing",
+    "tags": [
+      "kids",
+      "clothing",
+      "hoodies"
     ],
     "badges": [
       "SALE"
     ],
     "inStock": true,
-    "inventory": 60,
-    "material": "BPA-Free Plastic",
-    "careInstructions": "Hand wash only",
-    "sizeGuide": "accessories",
-    "createdAt": "2024-02-05T00:00:00Z",
-    "_id": "fb-prod-acc-5"
+    "inventory": 12,
+    "material": "Cotton Polyester Fleece Blend",
+    "careInstructions": "Machine wash",
+    "sizeGuide": "kids",
+    "createdAt": "2024-02-12T00:00:00Z",
+    "_id": "fb-prod-kd-3"
   }
 ]

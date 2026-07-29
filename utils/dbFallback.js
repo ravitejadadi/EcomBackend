@@ -154,7 +154,7 @@ export const fallbackDB = {
                 p => p.name.toLowerCase().includes(s) || p.description.toLowerCase().includes(s) || p.category.toLowerCase().includes(s)
             );
         }
-        return filtered;
+        return filtered.sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
     },
 
     async getProductBySlug(slug) {
