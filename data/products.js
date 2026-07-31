@@ -1477,5 +1477,161 @@ export const products = [
         "careInstructions": "Machine wash",
         "sizeGuide": "kids",
         "createdAt": "2024-02-12T00:00:00Z"
+    },
+    {
+        "id": "sar-1",
+        "name": "Kanchipuram Pure Silk Pattu Saree",
+        "slug": "kanchipuram-pure-silk-pattu-saree",
+        "description": "Exquisite handwoven pure Kanchipuram silk saree with intricate golden zari weave and matching blouse piece.",
+        "price": 12999,
+        "compareAtPrice": 15999,
+        "currency": "INR",
+        "gender": "women",
+        "images": [
+            {
+                "id": "img-sar-1",
+                "url": "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=800&q=80",
+                "alt": "Pattu Saree",
+                "position": 1
+            }
+        ],
+        "variants": [
+            {
+                "id": "v-sar1-1",
+                "size": "Free Size",
+                "color": "Royal Crimson Red",
+                "sku": "SAR1-CR-FS",
+                "price": 12999,
+                "inStock": true,
+                "inventory": 10
+            }
+        ],
+        "category": "Sarees",
+        "subcategory": "Pattu Sarees",
+        "tags": ["sarees", "pattu", "ethnic", "wedding", "women"],
+        "badges": ["NEW", "BESTSELLER"],
+        "inStock": true,
+        "inventory": 10,
+        "material": "100% Pure Silk with Zari",
+        "careInstructions": "Dry clean only",
+        "sizeGuide": "standard",
+        "createdAt": "2026-03-01T00:00:00Z"
+    },
+    {
+        "id": "eth-1",
+        "name": "Designer Velvet Embroidered Lehenga",
+        "slug": "designer-velvet-embroidered-lehenga",
+        "description": "Heavy embroidered bridal velvet lehenga with zardozi detail and organza dupatta.",
+        "price": 9999,
+        "compareAtPrice": 12999,
+        "currency": "INR",
+        "gender": "women",
+        "images": [
+            {
+                "id": "img-eth-1",
+                "url": "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=800&q=80",
+                "alt": "Designer Lehenga",
+                "position": 1
+            }
+        ],
+        "variants": [
+            {
+                "id": "v-eth1-1",
+                "size": "M",
+                "color": "Emerald Green",
+                "sku": "ETH1-EG-M",
+                "price": 9999,
+                "inStock": true,
+                "inventory": 8
+            }
+        ],
+        "category": "Ethnic Wear",
+        "subcategory": "Lehengas",
+        "tags": ["ethnic", "lehengas", "designer", "women"],
+        "badges": ["TRENDING"],
+        "inStock": true,
+        "inventory": 8,
+        "material": "Velvet with Micro-Zari Embroidery",
+        "careInstructions": "Dry clean only",
+        "sizeGuide": "standard",
+        "createdAt": "2026-03-02T00:00:00Z"
+    },
+    {
+        "id": "drs-1",
+        "name": "Floral Tiered Long Maxi Dress",
+        "slug": "floral-tiered-long-maxi-dress",
+        "description": "Elegant chiffon floral print long dress with ruffled sleeves and elasticated waist.",
+        "price": 2499,
+        "compareAtPrice": 3299,
+        "currency": "INR",
+        "gender": "women",
+        "images": [
+            {
+                "id": "img-drs-1",
+                "url": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=800&q=80",
+                "alt": "Long Dress",
+                "position": 1
+            }
+        ],
+        "variants": [
+            {
+                "id": "v-drs1-1",
+                "size": "M",
+                "color": "Pastel Pink",
+                "sku": "DRS1-PP-M",
+                "price": 2499,
+                "inStock": true,
+                "inventory": 15
+            }
+        ],
+        "category": "Dresses",
+        "subcategory": "Long Dresses",
+        "tags": ["dresses", "long dress", "western", "women"],
+        "badges": ["NEW"],
+        "inStock": true,
+        "inventory": 15,
+        "material": "Georgette Chiffon Blend",
+        "careInstructions": "Gentle hand wash",
+        "sizeGuide": "standard",
+        "createdAt": "2026-03-03T00:00:00Z"
+    },
+    {
+        "id": "wst-1",
+        "name": "High-Waisted Stretch Flare Jeans Pant",
+        "slug": "high-waisted-stretch-flare-jeans-pant",
+        "description": "Modern high-rise flare leg denim jeans crafted with premium stretch cotton for ultimate comfort.",
+        "price": 2199,
+        "compareAtPrice": 2799,
+        "currency": "INR",
+        "gender": "women",
+        "images": [
+            {
+                "id": "img-wst-1",
+                "url": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=800&q=80",
+                "alt": "Jeans Pant",
+                "position": 1
+            }
+        ],
+        "variants": [
+            {
+                "id": "v-wst1-1",
+                "size": "28",
+                "color": "Vintage Blue",
+                "sku": "WST1-VB-28",
+                "price": 2199,
+                "inStock": true,
+                "inventory": 20
+            }
+        ],
+        "category": "Western Wear",
+        "subcategory": "Jeans Pants",
+        "tags": ["western", "jeans", "pants", "women"],
+        "badges": ["BESTSELLER"],
+        "inStock": true,
+        "inventory": 20,
+        "material": "98% Cotton 2% Elastane Denim",
+        "careInstructions": "Machine wash cold",
+        "sizeGuide": "standard",
+        "createdAt": "2026-03-04T00:00:00Z"
     }
 ];

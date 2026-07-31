@@ -18,7 +18,7 @@ router.get('/', verifyToken, isAdmin, async (req, res) => {
         if (isOnline) {
             // 1. Total sales revenue (for Paid or non-Cancelled orders)
             const orders = await Order.find({ orderStatus: { $ne: 'Cancelled' } });
-            const totalSales = orders.reduce((sum, order) => sum + order.totalAmount, 0);
+            const totalSales = orders.reduce((sum, order) => sum + (order.totalAmount || 0), 0);
 
             // 2. Orders count
             const totalOrders = await Order.countDocuments();
@@ -63,12 +63,12 @@ router.get('/', verifyToken, isAdmin, async (req, res) => {
             const products = await fallbackDB.getProducts();
             const users = await fallbackDB.getUsers();
 
-            const nonCancelledOrders = orders.filter((o) => o.orderStatus !== 'Cancelled');
-            const totalSales = nonCancelledOrders.reduce((sum, order) => sum + order.totalAmount, 0);
+            const nonCancelledOrders = (orders || []).filter((o) => o.orderStatus !== 'Cancelled');
+            const totalSales = nonCancelledOrders.reduce((sum, order) => sum + (order.totalAmount || 0), 0);
             
-            const totalOrders = orders.length;
-            const totalProducts = products.length;
-            const totalCustomers = users.filter((u) => u.role === 'customer').length;
+            const totalOrders = (orders || []).length;
+            const totalProducts = (products || []).length;
+            const totalCustomers = (users || []).filter((u) => u.role === 'customer').length;
 
             const statusBreakdown = {
                 Pending: orders.filter((o) => o.orderStatus === 'Pending').length,
@@ -78,11 +78,11 @@ router.get('/', verifyToken, isAdmin, async (req, res) => {
                 Cancelled: orders.filter((o) => o.orderStatus === 'Cancelled').length,
             };
 
-            const recentOrders = orders.slice(0, 5);
-            const lowStockProducts = products
-                .filter((p) => p.inventory < 15)
+            const recentOrders = (orders || []).slice(0, 5);
+            const lowStockProducts = (products || [])
+                .filter((p) => (p.inventory || 0) < 15)
                 .slice(0, 5)
-                .map((p) => ({ id: p.id, name: p.name, inventory: p.inventory, category: p.category }));
+                .map((p) => ({ id: p.id || p._id, name: p.name, inventory: p.inventory || 0, category: p.category }));
 
             res.json({
                 totalSales,
@@ -96,7 +96,7 @@ router.get('/', verifyToken, isAdmin, async (req, res) => {
         }
     } catch (error) {
         console.error('Get dashboard stats error:', error);
-        res.status(500).json({ message: 'Server error' });
+        res.status(500).json({ message: 'Server error fetching dashboard metrics: ' + error.message });
     }
 });
 

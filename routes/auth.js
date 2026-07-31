@@ -322,13 +322,14 @@ router.post('/register', async (req, res) => {
             return res.status(400).json({ message: 'All fields are required' });
         }
 
+        const normalizedEmail = email.toLowerCase().trim();
         const isOnline = mongoose.connection.readyState === 1;
         let userExists;
 
         if (isOnline) {
-            userExists = await User.findOne({ email });
+            userExists = await User.findOne({ email: normalizedEmail });
         } else {
-            userExists = await fallbackDB.findUserByEmail(email);
+            userExists = await fallbackDB.findUserByEmail(normalizedEmail);
         }
 
         if (userExists) {
@@ -338,15 +339,15 @@ router.post('/register', async (req, res) => {
         let user;
         if (isOnline) {
             user = await User.create({
-                name,
-                email,
+                name: name.trim(),
+                email: normalizedEmail,
                 password,
                 role: 'customer',
             });
         } else {
             user = await fallbackDB.createUser({
-                name,
-                email,
+                name: name.trim(),
+                email: normalizedEmail,
                 password,
                 role: 'customer',
             });
@@ -378,16 +379,17 @@ router.post('/login', async (req, res) => {
             return res.status(400).json({ message: 'All fields are required' });
         }
 
+        const normalizedEmail = email.toLowerCase().trim();
         const isOnline = mongoose.connection.readyState === 1;
         let user;
 
         if (isOnline) {
-            user = await User.findOne({ email });
+            user = await User.findOne({ email: normalizedEmail });
             if (!user || !(await user.comparePassword(password))) {
                 return res.status(401).json({ message: 'Invalid email or password' });
             }
         } else {
-            user = await fallbackDB.findUserByEmail(email);
+            user = await fallbackDB.findUserByEmail(normalizedEmail);
             if (!user || !bcrypt.compareSync(password, user.password)) {
                 return res.status(401).json({ message: 'Invalid email or password' });
             }
