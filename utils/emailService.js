@@ -2,36 +2,26 @@ import nodemailer from 'nodemailer';
 
 /**
  * Sends a professional order/booking confirmation email to the customer.
- * Supports environment variables: SMTP_HOST, SMTP_PORT, SMTP_USER/SMTP_EMAIL, SMTP_PASS/SMTP_APP_PASSWORD.
+ * Supports Brevo (using BREVO_API_KEY, BREVO_FROM_EMAIL, BREVO_FROM_NAME) and fallback to Nodemailer Gmail SMTP.
+ * Guaranteed to never fail or block order placement even if email sending fails.
  * 
  * @param {Object} order - The order document from MongoDB / fallbackDB
  */
 export const sendOrderConfirmationEmail = async (order) => {
     try {
-        const host = process.env.SMTP_HOST || 'smtp.gmail.com';
-        const port = parseInt(process.env.SMTP_PORT || '587', 10);
-        const user = process.env.SMTP_USER || process.env.SMTP_EMAIL;
-        const pass = process.env.SMTP_PASS || process.env.SMTP_APP_PASSWORD;
-
-        if (!user || !pass) {
-            console.warn('[SMTP] Order confirmation email not sent: SMTP credentials not fully configured.');
+        if (!order || !order.shippingAddress || !order.shippingAddress.email) {
+            console.warn('[Email Service] Skipping order confirmation email: Invalid order or recipient email missing.');
             return;
         }
 
-        const transporter = nodemailer.createTransport({
-            host,
-            port,
-            secure: port === 465,
-            requireTLS: port !== 465,
-            auth: { user, pass },
-        });
-
-        const { shippingAddress, orderItems, paymentMethod, totalAmount, shippingCost, gstAmount, createdAt, _id } = order;
+        const { shippingAddress, orderItems = [], paymentMethod, totalAmount, shippingCost = 0, gstAmount = 0, createdAt, _id } = order;
         const recipientEmail = shippingAddress.email;
-        const recipientName = `${shippingAddress.firstName} ${shippingAddress.lastName}`;
+        const recipientName = `${shippingAddress.firstName || ''} ${shippingAddress.lastName || ''}`.trim() || 'Valued Customer';
+        const formattedOrderId = _id ? _id.toString().toUpperCase() : 'N/A';
+        const subject = `Order Confirmation #${formattedOrderId} — THE ELEGANT`;
 
         // Calculate items subtotal
-        const subtotal = orderItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+        const subtotal = orderItems.reduce((sum, item) => sum + (item.price || 0) * (item.quantity || 1), 0);
 
         // Format dates
         const orderDate = createdAt ? new Date(createdAt).toLocaleDateString('en-US', {
@@ -46,18 +36,27 @@ export const sendOrderConfirmationEmail = async (order) => {
 
         // Build list of items for the email
         const itemsHtml = orderItems.map(item => {
-            const imageUrl = item.image?.url || 'https://via.placeholder.com/150';
-            const itemTotal = item.price * item.quantity;
+            let rawUrl = (typeof item.image === 'string' ? item.image : item.image?.url) ||
+                         (Array.isArray(item.images) ? (typeof item.images[0] === 'string' ? item.images[0] : item.images[0]?.url) : null) ||
+                         'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&q=80';
+
+            // Ensure absolute URL for email clients
+            if (rawUrl && !rawUrl.startsWith('http://') && !rawUrl.startsWith('https://')) {
+                const baseUrl = process.env.FRONTEND_URL || 'http://localhost:5173';
+                rawUrl = `${baseUrl.replace(/\/$/, '')}/${rawUrl.replace(/^\//, '')}`;
+            }
+
+            const itemTotal = (item.price || 0) * (item.quantity || 1);
             return `
             <tr>
                 <td style="padding: 15px 0; border-bottom: 1px solid #eeeeee; vertical-align: top; width: 60px;">
-                    <img src="${imageUrl}" alt="${item.name}" width="50" height="50" style="display: block; border-radius: 4px; object-fit: cover; border: 1px solid #e0e0e0;" />
+                    <img src="${rawUrl}" alt="${item.name}" width="60" height="60" style="display: block; border-radius: 6px; object-fit: cover; border: 1px solid #e0e0e0; max-width: 60px; height: auto;" />
                 </td>
                 <td style="padding: 15px 10px; border-bottom: 1px solid #eeeeee; vertical-align: top; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
                     <div style="font-weight: 600; color: #1a1a1a; font-size: 14px; margin-bottom: 4px;">${item.name}</div>
                     <div style="font-size: 12px; color: #777777;">
-                        Size: <span style="font-weight: 500; color: #333333;">${item.variant.size}</span> &nbsp;|&nbsp; 
-                        Color: <span style="font-weight: 500; color: #333333;">${item.variant.color}</span>
+                        Size: <span style="font-weight: 500; color: #333333;">${item.variant?.size || 'N/A'}</span> &nbsp;|&nbsp; 
+                        Color: <span style="font-weight: 500; color: #333333;">${item.variant?.color || 'N/A'}</span>
                     </div>
                 </td>
                 <td style="padding: 15px 10px; border-bottom: 1px solid #eeeeee; vertical-align: top; text-align: center; font-size: 14px; color: #555555; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
@@ -69,8 +68,6 @@ export const sendOrderConfirmationEmail = async (order) => {
             </tr>
             `;
         }).join('');
-
-        const formattedOrderId = _id ? _id.toString().toUpperCase() : 'N/A';
 
         const emailHtml = `
 <!DOCTYPE html>
@@ -152,7 +149,7 @@ export const sendOrderConfirmationEmail = async (order) => {
                                             </tr>
                                             <tr style="font-size: 16px; border-top: 1px solid #eeeeee;">
                                                 <td align="left" style="padding-top: 10px; font-weight: bold; color: #1a1a1a; font-family: Georgia, 'Times New Roman', serif;">Total:</td>
-                                                <td align="right" style="padding-top: 10px; font-weight: bold; color: #c5a880; font-family: Georgia, 'Times New Roman', serif;">₹${totalAmount.toLocaleString('en-IN')}</td>
+                                                <td align="right" style="padding-top: 10px; font-weight: bold; color: #c5a880; font-family: Georgia, 'Times New Roman', serif;">₹${totalAmount ? totalAmount.toLocaleString('en-IN') : '0'}</td>
                                             </tr>
                                         </table>
                                     </td>
@@ -191,16 +188,104 @@ export const sendOrderConfirmationEmail = async (order) => {
 </html>
         `;
 
-        const mailOptions = {
-            from: `"THE ELEGANT" <${user}>`,
-            to: recipientEmail,
-            subject: `Order Confirmation #${formattedOrderId} — THE ELEGANT`,
-            html: emailHtml,
-        };
+        const brevoApiKey = process.env.BREVO_API_KEY;
+        const senderEmail = process.env.BREVO_FROM_EMAIL || process.env.BREVO_SENDER_EMAIL || process.env.SMTP_USER || process.env.SMTP_EMAIL || 'theelegant2327@gmail.com';
+        const senderName = process.env.BREVO_FROM_NAME || process.env.BREVO_SENDER_NAME || 'The ELEGANT';
 
-        const info = await transporter.sendMail(mailOptions);
-        console.log(`[SMTP] Booking confirmation email sent successfully to ${recipientEmail}. Message ID: ${info.messageId}`);
+        // ─── Attempt 1: Brevo SMTP Relay (for xsmtpsib- keys) ────────────────
+        if (brevoApiKey && brevoApiKey.startsWith('xsmtpsib-')) {
+            try {
+                const brevoTransporter = nodemailer.createTransport({
+                    host: 'smtp-relay.brevo.com',
+                    port: 587,
+                    secure: false,
+                    auth: {
+                        user: senderEmail,
+                        pass: brevoApiKey.trim(),
+                    },
+                });
+
+                const mailOptions = {
+                    from: `"${senderName}" <${senderEmail}>`,
+                    to: recipientEmail,
+                    subject: subject,
+                    html: emailHtml,
+                };
+
+                const info = await brevoTransporter.sendMail(mailOptions);
+                console.log(`[Brevo SMTP] Order confirmation email sent successfully to ${recipientEmail}. Message ID: ${info.messageId}`);
+                return;
+            } catch (brevoSmtpErr) {
+                console.error('[Brevo SMTP] Failed via Brevo SMTP relay:', brevoSmtpErr.message);
+            }
+        }
+
+        // ─── Attempt 2: Brevo REST API v3 (for xkeysib- keys) ────────────────
+        if (brevoApiKey && !brevoApiKey.startsWith('placeholder')) {
+            try {
+                const response = await fetch('https://api.brevo.com/v3/smtp/email', {
+                    method: 'POST',
+                    headers: {
+                        'accept': 'application/json',
+                        'api-key': brevoApiKey.trim(),
+                        'content-type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        sender: { name: senderName, email: senderEmail },
+                        to: [{ email: recipientEmail, name: recipientName }],
+                        subject: subject,
+                        htmlContent: emailHtml,
+                    }),
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log(`[Brevo API] Order confirmation email sent successfully to ${recipientEmail}. Message ID: ${data.messageId || 'N/A'}`);
+                    return;
+                } else {
+                    const errData = await response.text();
+                    console.error(`[Brevo API] Returned error status ${response.status}: ${errData}`);
+                }
+            } catch (brevoErr) {
+                console.error('[Brevo API] Error calling Brevo API:', brevoErr.message);
+            }
+        }
+
+        // ─── Attempt 3: Nodemailer Gmail SMTP Fallback ─────────────────────────
+        const host = process.env.SMTP_HOST || 'smtp.gmail.com';
+        const port = parseInt(process.env.SMTP_PORT || '587', 10);
+        const user = process.env.SMTP_USER || process.env.SMTP_EMAIL;
+        const pass = process.env.SMTP_PASS || process.env.SMTP_APP_PASSWORD;
+
+        if (user && pass) {
+            try {
+                const transporter = nodemailer.createTransport({
+                    host,
+                    port,
+                    secure: port === 465,
+                    requireTLS: port !== 465,
+                    auth: { user, pass },
+                });
+
+                const mailOptions = {
+                    from: `"${senderName}" <${user}>`,
+                    to: recipientEmail,
+                    subject: subject,
+                    html: emailHtml,
+                };
+
+                const info = await transporter.sendMail(mailOptions);
+                console.log(`[SMTP Fallback] Order confirmation email sent successfully to ${recipientEmail}. Message ID: ${info.messageId}`);
+                return;
+            } catch (smtpErr) {
+                console.error('[SMTP Fallback] Failed via Nodemailer SMTP:', smtpErr.message);
+            }
+        }
+
+        console.warn('[Email Service] Order confirmation email not sent: Neither Brevo API key nor SMTP credentials are operational.');
+
     } catch (error) {
-        console.error('[SMTP] Failed to send booking confirmation email:', error);
+        // Guaranteed safety: error is caught & logged, never crashing or failing the caller order flow
+        console.error('[Email Service] Failed to send order confirmation email (order non-blocking):', error.message || error);
     }
 };

@@ -105,8 +105,8 @@ router.post('/', optionalAuth, async (req, res) => {
                 totalAmount,
             });
 
-            // Send booking confirmation email asynchronously
-            sendOrderConfirmationEmail(order);
+            // Send booking confirmation email asynchronously (non-blocking)
+            sendOrderConfirmationEmail(order).catch(err => console.error('[Orders Route] Non-blocking email error:', err));
 
             res.status(201).json(order);
         } else {
@@ -168,8 +168,8 @@ router.post('/', optionalAuth, async (req, res) => {
                 totalAmount,
             });
 
-            // Send booking confirmation email asynchronously
-            sendOrderConfirmationEmail(order);
+            // Send booking confirmation email asynchronously (non-blocking)
+            sendOrderConfirmationEmail(order).catch(err => console.error('[Orders Route] Non-blocking email error:', err));
 
             res.status(201).json(order);
         }
