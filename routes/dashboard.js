@@ -31,6 +31,7 @@ router.get('/', verifyToken, isAdmin, async (req, res) => {
 
             // 5. Orders status breakdown
             const statusBreakdown = {
+                Confirmed: await Order.countDocuments({ orderStatus: 'Confirmed' }),
                 Pending: await Order.countDocuments({ orderStatus: 'Pending' }),
                 Processing: await Order.countDocuments({ orderStatus: 'Processing' }),
                 Shipped: await Order.countDocuments({ orderStatus: 'Shipped' }),
@@ -71,11 +72,12 @@ router.get('/', verifyToken, isAdmin, async (req, res) => {
             const totalCustomers = (users || []).filter((u) => u.role === 'customer').length;
 
             const statusBreakdown = {
-                Pending: orders.filter((o) => o.orderStatus === 'Pending').length,
-                Processing: orders.filter((o) => o.orderStatus === 'Processing').length,
-                Shipped: orders.filter((o) => o.orderStatus === 'Shipped').length,
-                Delivered: orders.filter((o) => o.orderStatus === 'Delivered').length,
-                Cancelled: orders.filter((o) => o.orderStatus === 'Cancelled').length,
+                Confirmed: (orders || []).filter((o) => o.orderStatus === 'Confirmed').length,
+                Pending: (orders || []).filter((o) => o.orderStatus === 'Pending').length,
+                Processing: (orders || []).filter((o) => o.orderStatus === 'Processing').length,
+                Shipped: (orders || []).filter((o) => o.orderStatus === 'Shipped').length,
+                Delivered: (orders || []).filter((o) => o.orderStatus === 'Delivered').length,
+                Cancelled: (orders || []).filter((o) => o.orderStatus === 'Cancelled').length,
             };
 
             const recentOrders = (orders || []).slice(0, 5);

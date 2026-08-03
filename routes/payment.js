@@ -95,7 +95,17 @@ router.post('/create-order', async (req, res) => {
         });
     } catch (error) {
         console.error('Razorpay create-order error:', error);
-        res.status(500).json({ message: 'Failed to create payment order with Razorpay. Please try again.' });
+        const statusCode = error?.statusCode || error?.status || 500;
+        const razorpayDesc = error?.error?.description || error?.message || '';
+
+        if (statusCode === 401 || razorpayDesc.includes('Authentication failed')) {
+            return res.status(502).json({
+                message: 'Razorpay Gateway Authentication Failed: The RAZORPAY_KEY_ID or RAZORPAY_KEY_SECRET in backend/.env is invalid or expired. Please update backend/.env with valid API keys from Razorpay Dashboard (Settings -> API Keys).',
+                details: razorpayDesc,
+            });
+        }
+
+        res.status(500).json({ message: razorpayDesc || 'Failed to create payment order with Razorpay. Please try again.' });
     }
 });
 
