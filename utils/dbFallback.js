@@ -18,6 +18,7 @@ if (!fs.existsSync(DATA_DIR)) {
 const PRODUCTS_FILE = path.join(DATA_DIR, 'fallback_products.json');
 const USERS_FILE = path.join(DATA_DIR, 'fallback_users.json');
 const ORDERS_FILE = path.join(DATA_DIR, 'fallback_orders.json');
+const COUPONS_FILE = path.join(DATA_DIR, 'fallback_coupons.json');
 
 // Helper to read JSON file
 const readJSON = (filePath, defaultData = []) => {
@@ -90,9 +91,64 @@ const seedInitialProducts = () => {
     }
 };
 
+const seedInitialCoupons = () => {
+    const coupons = readJSON(COUPONS_FILE, []);
+    if (coupons.length === 0) {
+        const seedData = [
+            {
+                _id: 'fb-coupon-luxe10',
+                code: 'LUXE10',
+                description: 'Get 10% off on all luxury items (Max discount ₹500)',
+                discountType: 'percentage',
+                discountAmount: 10,
+                maxDiscountAmount: 500,
+                minPurchaseAmount: 999,
+                startDate: new Date().toISOString(),
+                expiryDate: null,
+                usageLimit: 500,
+                usedCount: 14,
+                isActive: true,
+                createdAt: new Date().toISOString(),
+            },
+            {
+                _id: 'fb-coupon-welcome200',
+                code: 'WELCOME200',
+                description: 'Flat ₹200 off on your first order above ₹1,499',
+                discountType: 'flat',
+                discountAmount: 200,
+                maxDiscountAmount: null,
+                minPurchaseAmount: 1499,
+                startDate: new Date().toISOString(),
+                expiryDate: null,
+                usageLimit: 1000,
+                usedCount: 42,
+                isActive: true,
+                createdAt: new Date().toISOString(),
+            },
+            {
+                _id: 'fb-coupon-festive20',
+                code: 'FESTIVE20',
+                description: '20% off on orders above ₹2,500 (Max discount ₹1,000)',
+                discountType: 'percentage',
+                discountAmount: 20,
+                maxDiscountAmount: 1000,
+                minPurchaseAmount: 2500,
+                startDate: new Date().toISOString(),
+                expiryDate: null,
+                usageLimit: 200,
+                usedCount: 5,
+                isActive: true,
+                createdAt: new Date().toISOString(),
+            },
+        ];
+        writeJSON(COUPONS_FILE, seedData);
+    }
+};
+
 // Initialize fallbacks
 seedInitialUsers();
 seedInitialProducts();
+seedInitialCoupons();
 
 export const fallbackDB = {
     // === USERS ===
@@ -309,5 +365,100 @@ export const fallbackDB = {
             writeJSON(USERS_FILE, users);
         }
         return user;
+    },
+
+    // === COUPONS ===
+    async getCoupons() {
+        const coupons = readJSON(COUPONS_FILE, []);
+        return coupons.sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
+    },
+
+    async getCouponById(id) {
+        const coupons = readJSON(COUPONS_FILE, []);
+        return coupons.find((c) => c._id === id || c.id === id);
+    },
+
+    async getCouponByCode(code) {
+        const coupons = readJSON(COUPONS_FILE, []);
+        const cleanCode = (code || '').toUpperCase().trim();
+        return coupons.find((c) => c.code.toUpperCase().trim() === cleanCode);
+    },
+
+    async createCoupon(couponData) {
+        const coupons = readJSON(COUPONS_FILE, []);
+        const cleanCode = couponData.code.toUpperCase().trim();
+
+        if (coupons.some((c) => c.code.toUpperCase().trim() === cleanCode)) {
+            throw new Error('Coupon code already exists');
+        }
+
+        if (couponData.expiryDate) {
+            const todayStart = new Date();
+            todayStart.setHours(0, 0, 0, 0);
+            if (new Date(couponData.expiryDate) < todayStart) {
+                throw new Error('Expiration date must be today or a future date.');
+            }
+        }
+
+        const newCoupon = {
+            ...couponData,
+            _id: 'fb-coupon-' + Math.random().toString(36).substring(2, 9),
+            code: cleanCode,
+            discountType: couponData.discountType || 'percentage',
+            discountAmount: Number(couponData.discountAmount) || 0,
+            maxDiscountAmount: couponData.maxDiscountAmount ? Number(couponData.maxDiscountAmount) : null,
+            minPurchaseAmount: Number(couponData.minPurchaseAmount) || 0,
+            startDate: couponData.startDate ? new Date(couponData.startDate).toISOString() : new Date().toISOString(),
+            expiryDate: couponData.expiryDate ? new Date(couponData.expiryDate).toISOString() : null,
+            usageLimit: couponData.usageLimit ? Number(couponData.usageLimit) : null,
+            usedCount: Number(couponData.usedCount) || 0,
+            isActive: couponData.isActive !== undefined ? Boolean(couponData.isActive) : true,
+            description: couponData.description || '',
+            createdAt: new Date().toISOString(),
+        };
+
+        coupons.push(newCoupon);
+        writeJSON(COUPONS_FILE, coupons);
+        return newCoupon;
+    },
+
+    async updateCoupon(id, updates) {
+        const coupons = readJSON(COUPONS_FILE, []);
+        const idx = coupons.findIndex((c) => c._id === id || c.id === id);
+        if (idx === -1) return null;
+
+        if (updates.code) {
+            const cleanCode = updates.code.toUpperCase().trim();
+            const exists = coupons.some((c, i) => i !== idx && c.code.toUpperCase().trim() === cleanCode);
+            if (exists) {
+                throw new Error('Coupon code already exists');
+            }
+            updates.code = cleanCode;
+        }
+
+        const updated = { ...coupons[idx], ...updates, updatedAt: new Date().toISOString() };
+        coupons[idx] = updated;
+        writeJSON(COUPONS_FILE, coupons);
+        return updated;
+    },
+
+    async deleteCoupon(id) {
+        let coupons = readJSON(COUPONS_FILE, []);
+        const initialLen = coupons.length;
+        coupons = coupons.filter((c) => c._id !== id && c.id !== id);
+        writeJSON(COUPONS_FILE, coupons);
+        return coupons.length < initialLen;
+    },
+
+    async incrementCouponUsage(code) {
+        const coupons = readJSON(COUPONS_FILE, []);
+        const cleanCode = (code || '').toUpperCase().trim();
+        const idx = coupons.findIndex((c) => c.code.toUpperCase().trim() === cleanCode);
+        if (idx !== -1) {
+            coupons[idx].usedCount = (coupons[idx].usedCount || 0) + 1;
+            writeJSON(COUPONS_FILE, coupons);
+            return coupons[idx];
+        }
+        return null;
     },
 };

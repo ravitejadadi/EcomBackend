@@ -20,6 +20,7 @@ import orderRoutes from './routes/orders.js';
 import dashboardRoutes from './routes/dashboard.js';
 import userRoutes from './routes/users.js';
 import paymentRoutes from './routes/payment.js';
+import couponRoutes from './routes/coupons.js';
 
 const app = express();
 
@@ -42,6 +43,7 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/payment', paymentRoutes);
+app.use('/api/coupons', couponRoutes);
 
 // Root Endpoint
 app.get('/', (req, res) => {

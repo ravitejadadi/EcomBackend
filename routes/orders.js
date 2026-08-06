@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import Order from '../models/Order.js';
 import Product from '../models/Product.js';
+import Coupon from '../models/Coupon.js';
 import { verifyToken, isAdmin, optionalAuth } from '../middleware/auth.js';
 import { fallbackDB } from '../utils/dbFallback.js';
 import { sendOrderConfirmationEmail } from '../utils/emailService.js';
@@ -13,7 +14,7 @@ const router = express.Router();
 // @access  Public/Optional Registered
 router.post('/', optionalAuth, async (req, res) => {
     try {
-        const { orderItems, shippingAddress, paymentMethod } = req.body;
+        const { orderItems, shippingAddress, paymentMethod, couponCode } = req.body;
 
         if (!orderItems || orderItems.length === 0) {
             return res.status(400).json({ message: 'No order items' });
@@ -88,10 +89,28 @@ router.post('/', optionalAuth, async (req, res) => {
                 });
             }
 
-            // Apply GST structure and shipping
-            const gstAmount = Math.round(calculatedTotal * 0.18);
-            const shippingCost = calculatedTotal > 2500 ? 0 : 150;
-            const totalAmount = calculatedTotal + gstAmount + shippingCost;
+            // Apply coupon discount if provided
+            let discountAmount = 0;
+            let appliedCouponCode = null;
+
+            if (couponCode && typeof couponCode === 'string' && couponCode.trim()) {
+                const cleanCode = couponCode.trim().toUpperCase();
+                const coupon = await Coupon.findOne({ code: cleanCode });
+                if (coupon && coupon.isActive) {
+                    const validation = coupon.isValidForSubtotal(calculatedTotal);
+                    if (validation.valid) {
+                        discountAmount = coupon.calculateDiscount(calculatedTotal);
+                        appliedCouponCode = coupon.code;
+                        coupon.usedCount = (coupon.usedCount || 0) + 1;
+                        await coupon.save();
+                    }
+                }
+            }
+
+            const netSubtotal = Math.max(0, calculatedTotal - discountAmount);
+            const gstAmount = Math.round(netSubtotal * 0.18);
+            const shippingCost = netSubtotal > 2500 ? 0 : 150;
+            const totalAmount = netSubtotal + gstAmount + shippingCost;
 
             const order = await Order.create({
                 user: req.user ? req.user._id : null,
@@ -102,6 +121,8 @@ router.post('/', optionalAuth, async (req, res) => {
                 orderStatus: 'Confirmed',
                 shippingCost,
                 gstAmount,
+                couponCode: appliedCouponCode,
+                discountAmount,
                 totalAmount,
             });
 
@@ -152,9 +173,33 @@ router.post('/', optionalAuth, async (req, res) => {
                 });
             }
 
-            const gstAmount = Math.round(calculatedTotal * 0.18);
-            const shippingCost = calculatedTotal > 2500 ? 0 : 150;
-            const totalAmount = calculatedTotal + gstAmount + shippingCost;
+            let discountAmount = 0;
+            let appliedCouponCode = null;
+
+            if (couponCode && typeof couponCode === 'string' && couponCode.trim()) {
+                const cleanCode = couponCode.trim().toUpperCase();
+                const coupon = await fallbackDB.getCouponByCode(cleanCode);
+                if (coupon && coupon.isActive) {
+                    if (calculatedTotal >= (coupon.minPurchaseAmount || 0)) {
+                        if (coupon.discountType === 'percentage') {
+                            discountAmount = (calculatedTotal * coupon.discountAmount) / 100;
+                            if (coupon.maxDiscountAmount && coupon.maxDiscountAmount > 0) {
+                                discountAmount = Math.min(discountAmount, coupon.maxDiscountAmount);
+                            }
+                        } else {
+                            discountAmount = coupon.discountAmount;
+                        }
+                        discountAmount = Math.min(Math.round(discountAmount), calculatedTotal);
+                        appliedCouponCode = coupon.code;
+                        await fallbackDB.incrementCouponUsage(coupon.code);
+                    }
+                }
+            }
+
+            const netSubtotal = Math.max(0, calculatedTotal - discountAmount);
+            const gstAmount = Math.round(netSubtotal * 0.18);
+            const shippingCost = netSubtotal > 2500 ? 0 : 150;
+            const totalAmount = netSubtotal + gstAmount + shippingCost;
 
             const order = await fallbackDB.createOrder({
                 user: req.user ? req.user._id : null,
@@ -165,6 +210,8 @@ router.post('/', optionalAuth, async (req, res) => {
                 orderStatus: 'Confirmed',
                 shippingCost,
                 gstAmount,
+                couponCode: appliedCouponCode,
+                discountAmount,
                 totalAmount,
             });
 

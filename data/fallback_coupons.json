@@ -1,0 +1,47 @@
+[
+  {
+    "_id": "fb-coupon-luxe10",
+    "code": "LUXE10",
+    "description": "Get 10% off on all luxury items (Max discount ₹500)",
+    "discountType": "percentage",
+    "discountAmount": 10,
+    "maxDiscountAmount": 500,
+    "minPurchaseAmount": 999,
+    "startDate": "2026-08-06T17:28:41.763Z",
+    "expiryDate": null,
+    "usageLimit": 500,
+    "usedCount": 14,
+    "isActive": true,
+    "createdAt": "2026-08-06T17:28:41.764Z"
+  },
+  {
+    "_id": "fb-coupon-welcome200",
+    "code": "WELCOME200",
+    "description": "Flat ₹200 off on your first order above ₹1,499",
+    "discountType": "flat",
+    "discountAmount": 200,
+    "maxDiscountAmount": null,
+    "minPurchaseAmount": 1499,
+    "startDate": "2026-08-06T17:28:41.764Z",
+    "expiryDate": null,
+    "usageLimit": 1000,
+    "usedCount": 42,
+    "isActive": true,
+    "createdAt": "2026-08-06T17:28:41.764Z"
+  },
+  {
+    "_id": "fb-coupon-festive20",
+    "code": "FESTIVE20",
+    "description": "20% off on orders above ₹2,500 (Max discount ₹1,000)",
+    "discountType": "percentage",
+    "discountAmount": 20,
+    "maxDiscountAmount": 1000,
+    "minPurchaseAmount": 2500,
+    "startDate": "2026-08-06T17:28:41.764Z",
+    "expiryDate": null,
+    "usageLimit": 200,
+    "usedCount": 5,
+    "isActive": true,
+    "createdAt": "2026-08-06T17:28:41.764Z"
+  }
+]

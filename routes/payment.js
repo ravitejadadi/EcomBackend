@@ -4,6 +4,7 @@ import crypto from 'crypto';
 import mongoose from 'mongoose';
 import Order from '../models/Order.js';
 import Product from '../models/Product.js';
+import Coupon from '../models/Coupon.js';
 import { optionalAuth } from '../middleware/auth.js';
 import { sendOrderConfirmationEmail } from '../utils/emailService.js';
 
@@ -117,10 +118,10 @@ router.post('/verify', optionalAuth, async (req, res) => {
         const {
             razorpay_order_id,
             razorpay_payment_id,
-            razorpay_signature,
             orderItems,
             shippingAddress,
             paymentMethod,
+            couponCode,
         } = req.body;
 
         if (!razorpay_order_id || !razorpay_payment_id || !razorpay_signature) {
@@ -201,9 +202,27 @@ router.post('/verify', optionalAuth, async (req, res) => {
             });
         }
 
-        const gstAmount = Math.round(calculatedTotal * 0.18);
-        const shippingCost = calculatedTotal > 2500 ? 0 : 150;
-        const totalAmount = calculatedTotal + gstAmount + shippingCost;
+        let discountAmount = 0;
+        let appliedCouponCode = null;
+
+        if (couponCode && typeof couponCode === 'string' && couponCode.trim()) {
+            const cleanCode = couponCode.trim().toUpperCase();
+            const coupon = await Coupon.findOne({ code: cleanCode });
+            if (coupon && coupon.isActive) {
+                const validation = coupon.isValidForSubtotal(calculatedTotal);
+                if (validation.valid) {
+                    discountAmount = coupon.calculateDiscount(calculatedTotal);
+                    appliedCouponCode = coupon.code;
+                    coupon.usedCount = (coupon.usedCount || 0) + 1;
+                    await coupon.save();
+                }
+            }
+        }
+
+        const netSubtotal = Math.max(0, calculatedTotal - discountAmount);
+        const gstAmount = Math.round(netSubtotal * 0.18);
+        const shippingCost = netSubtotal > 2500 ? 0 : 150;
+        const totalAmount = netSubtotal + gstAmount + shippingCost;
 
         const order = await Order.create({
             user: req.user ? req.user._id : null,
@@ -216,6 +235,8 @@ router.post('/verify', optionalAuth, async (req, res) => {
             razorpayPaymentId: razorpay_payment_id,
             shippingCost,
             gstAmount,
+            couponCode: appliedCouponCode,
+            discountAmount,
             totalAmount,
         });
 
