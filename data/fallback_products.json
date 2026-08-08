@@ -949,6 +949,64 @@
     "_id": "fb-prod-bw-4"
   },
   {
+    "id": "bw-5",
+    "name": "Athletic Performance Track Pants",
+    "slug": "athletic-performance-track-pants",
+    "description": "Breathable dry-fit athletic track pants with zippered side pockets and elastic ankle cuffs.",
+    "price": 1999,
+    "compareAtPrice": 2499,
+    "currency": "INR",
+    "gender": "men",
+    "images": [
+      {
+        "id": "img-bw-5",
+        "url": "https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=800&q=80",
+        "alt": "Track Pants",
+        "position": 1
+      }
+    ],
+    "variants": [
+      {
+        "id": "v-bw5-1",
+        "size": "M",
+        "color": "Puma Black",
+        "sku": "BW5-BLK-M",
+        "price": 1999,
+        "inStock": true,
+        "inventory": 20
+      },
+      {
+        "id": "v-bw5-2",
+        "size": "L",
+        "color": "Puma Black",
+        "sku": "BW5-BLK-L",
+        "price": 1999,
+        "inStock": true,
+        "inventory": 15
+      }
+    ],
+    "category": "Bottom Wear",
+    "subcategory": "Track Pants",
+    "tags": [
+      "bottom wear",
+      "track pants",
+      "joggers",
+      "athletic",
+      "training"
+    ],
+    "badges": [
+      "NEW",
+      "TRENDING"
+    ],
+    "inStock": true,
+    "inventory": 35,
+    "material": "Polyester Spandex Quick-Dry Blend",
+    "careInstructions": "Machine wash cold",
+    "sizeGuide": "standard",
+    "createdAt": "2024-03-10T00:00:00Z",
+    "_id": "fb-prod-bw-5"
+  },
+  {
     "id": "st-1",
     "name": "Casual Cotton Chino Shorts",
     "slug": "casual-cotton-chino-shorts",
